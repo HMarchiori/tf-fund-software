@@ -10,6 +10,7 @@ import jakarta.persistence.Table;
 @Table(name = "empresarial")
 public class EEmpresarial {
     //Definir o tipo de chave 
+    @Id
     @Column(name = "cnpj")
     private String cnpj;
     @Column(name = "razao_social")
