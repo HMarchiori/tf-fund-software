@@ -3,9 +3,7 @@ package com.acme.ENTITY;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Getter
-@Setter
-
+@Data
 @Entity
 @Table(name = "individual")
 public class Eindividual {

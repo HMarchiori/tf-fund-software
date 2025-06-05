@@ -1,10 +1,14 @@
 package com.acme.ENTITY;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import jakarta.persistence.*;
 import lombok.*;
 
-@Getter
-@Setter
+
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@Data
 @Entity
 @Table(name = "cliente")
 public class ECliente {
@@ -23,6 +27,10 @@ public class ECliente {
     @OneToOne
     @JoinColumn(name = "cpf" )
     private Eindividual individual;
+
+    @OneToOne
+    @JoinColumn(name = "cnpj")
+    private EEmpresarial empresarial;
     
 
 

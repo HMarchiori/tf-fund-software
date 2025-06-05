@@ -6,8 +6,8 @@ import jakarta.persistence.Table;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Getter
-@Setter
+
+@Data
 @Entity
 @Table(name = "empresarial")
 public class EEmpresarial {

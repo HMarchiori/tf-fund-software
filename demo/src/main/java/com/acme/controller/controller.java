@@ -10,31 +10,40 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.acme.ENTITY.ECliente;
+import com.acme.ENTITY.EEmpresarial;
 import com.acme.ENTITY.Eindividual;
 import com.acme.JPA.clienteRepository;
+import com.acme.JPA.empresarialRepository;
 import com.acme.JPA.individualRepository;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/acmegames/cadastro")
 public class controller {
     private final clienteRepository clienteRepo;
     private final individualRepository individualRepo;
+    private final empresarialRepository empresarialRepo;
 
-    public controller(clienteRepository clienteRepo, individualRepository individualRepo) {
+    public controller(clienteRepository clienteRepo, individualRepository individualRepo, empresarialRepository empresarialRepo) {
         this.individualRepo = individualRepo;
         this.clienteRepo = clienteRepo;
+        this.empresarialRepo = empresarialRepo; 
     }
 
-     @GetMapping("/listarclientes")
+     @GetMapping("/listacliente")
        public List<ECliente> getClientes() {
             return clienteRepo.findAll();
 
         }
 
         @CrossOrigin(origins = "*")
-        @PostMapping("/cadastro")
+        @PostMapping("cadcliente")
         public ECliente cadastrarcliente(@RequestBody ECliente ecliente){
             Eindividual eindividual = ecliente.getIndividual();
+            EEmpresarial eempresarial = ecliente.getEmpresarial();
+
+            if (eempresarial != null && !empresarialRepo.existsById(eempresarial.getCnpj())) {
+                empresarialRepo.save(eempresarial);
+            }
 
             if (eindividual != null && !individualRepo.existsById(eindividual.getCpf())) {
                 individualRepo.save(eindividual);
