@@ -34,13 +34,13 @@ public class controller {
         @CrossOrigin(origins = "*")
         @PostMapping("/cadastro")
         public ECliente cadastrarcliente(@RequestBody ECliente ecliente){
+            Eindividual eindividual = ecliente.getIndividual();
+
+            if (eindividual != null && !individualRepo.existsById(eindividual.getCpf())) {
+                individualRepo.save(eindividual);
+             }
             return clienteRepo.save(ecliente);
         }
 
-        @PostMapping("/cadastro/individual")
-        public Eindividual cadastrarIndividual(@RequestBody Eindividual eindividual){
-            return individualRepo.save(eindividual);
 
-
-    }
 }

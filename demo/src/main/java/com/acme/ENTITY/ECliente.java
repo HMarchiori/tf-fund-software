@@ -5,8 +5,6 @@ import lombok.*;
 
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name = "cliente")
 public class ECliente {
@@ -22,8 +20,12 @@ public class ECliente {
     @Column(name = "endereco")
     private String endereco;
 
-    @OneToOne(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne
+    @JoinColumn(name = "cpf" )
     private Eindividual individual;
+    
+
+
 
  
 }
