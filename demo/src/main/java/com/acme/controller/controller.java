@@ -14,10 +14,12 @@ import com.acme.ENTITY.ECliente;
 import com.acme.ENTITY.EEmpresarial;
 import com.acme.ENTITY.Ealuguel;
 import com.acme.ENTITY.Eindividual;
+import com.acme.ENTITY.Ejogo;
 import com.acme.JPA.aluguelRepository;
 import com.acme.JPA.clienteRepository;
 import com.acme.JPA.empresarialRepository;
 import com.acme.JPA.individualRepository;
+import com.acme.JPA.jogoRepository;
 
 @RestController
 @RequestMapping("/acmegames/cadastro")
@@ -26,19 +28,27 @@ public class controller {
     private final individualRepository individualRepo;
     private final empresarialRepository empresarialRepo;
     private final aluguelRepository aluguelRepo;
+    private final jogoRepository jogoRepo;
 
-    public controller(clienteRepository clienteRepo, individualRepository individualRepo, empresarialRepository empresarialRepo, aluguelRepository aluguelRepo) {
+    public controller(clienteRepository clienteRepo, individualRepository individualRepo, empresarialRepository empresarialRepo, aluguelRepository aluguelRepo, jogoRepository jogoRepo) {
         this.aluguelRepo = aluguelRepo;
         this.individualRepo = individualRepo;
         this.clienteRepo = clienteRepo;
         this.empresarialRepo = empresarialRepo; 
+        this.jogoRepo = jogoRepo;
     }
+
+    //Endpoint para listar clientes
+
+        @CrossOrigin(origins = "*")
 
      @GetMapping("/listacliente")
        public List<ECliente> getClientes() {
             return clienteRepo.findAll();
 
         }
+
+        //Endpoint para cadastrar cliente
 
         @CrossOrigin(origins = "*")
         @PostMapping("cadcliente")
@@ -56,6 +66,8 @@ public class controller {
             return clienteRepo.save(ecliente);
         }
 
+        //Endpoint para cadastrar aluguel
+
         @PostMapping("/cadaluguel")
         public Ealuguel cadastrarAluguel(@RequestBody Ealuguel ealuguel) {
             if(ealuguel.getDataInicio() == null){
@@ -63,10 +75,23 @@ public class controller {
             }
             return aluguelRepo.save(ealuguel);
         }
-
+        //Endpoint para listar alugueis
         @GetMapping("/listaaluguel")
         public List<Ealuguel> getAlugueis(){
             return aluguelRepo.findAll();
         }
 
-}
+        //Endpoint para cadastrar jogo
+
+        @PostMapping("cadjogo")
+            public Ejogo cadastrarJogo(@RequestBody Ejogo ejogo) {
+                return jogoRepo.save(ejogo);
+            }
+        
+
+        @GetMapping("/listajogo")
+        public List<Ejogo> getJogos() {
+            return jogoRepo.findAll();
+        }
+
+    }

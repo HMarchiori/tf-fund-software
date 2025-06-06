@@ -1,6 +1,6 @@
 package com.acme.ENTITY;
 import java.time.LocalDateTime;
-import javax.annotation.processing.Generated;
+
 
 import jakarta.persistence.*;
 import lombok.Data;
