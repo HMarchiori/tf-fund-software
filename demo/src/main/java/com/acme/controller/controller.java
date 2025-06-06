@@ -1,4 +1,5 @@
 package com.acme.controller;
+import java.time.LocalDateTime;
 import java.util.*;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -11,7 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.acme.ENTITY.ECliente;
 import com.acme.ENTITY.EEmpresarial;
+import com.acme.ENTITY.Ealuguel;
 import com.acme.ENTITY.Eindividual;
+import com.acme.JPA.aluguelRepository;
 import com.acme.JPA.clienteRepository;
 import com.acme.JPA.empresarialRepository;
 import com.acme.JPA.individualRepository;
@@ -22,8 +25,10 @@ public class controller {
     private final clienteRepository clienteRepo;
     private final individualRepository individualRepo;
     private final empresarialRepository empresarialRepo;
+    private final aluguelRepository aluguelRepo;
 
-    public controller(clienteRepository clienteRepo, individualRepository individualRepo, empresarialRepository empresarialRepo) {
+    public controller(clienteRepository clienteRepo, individualRepository individualRepo, empresarialRepository empresarialRepo, aluguelRepository aluguelRepo) {
+        this.aluguelRepo = aluguelRepo;
         this.individualRepo = individualRepo;
         this.clienteRepo = clienteRepo;
         this.empresarialRepo = empresarialRepo; 
@@ -51,5 +56,17 @@ public class controller {
             return clienteRepo.save(ecliente);
         }
 
+        @PostMapping("/cadaluguel")
+        public Ealuguel cadastrarAluguel(@RequestBody Ealuguel ealuguel) {
+            if(ealuguel.getDataInicio() == null){
+                ealuguel.setDataInicio(LocalDateTime.now());
+            }
+            return aluguelRepo.save(ealuguel);
+        }
+
+        @GetMapping("/listaaluguel")
+        public List<Ealuguel> getAlugueis(){
+            return aluguelRepo.findAll();
+        }
 
 }
