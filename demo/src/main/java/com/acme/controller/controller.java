@@ -2,6 +2,7 @@ package com.acme.controller;
 import java.time.LocalDateTime;
 import java.util.*;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,6 +31,7 @@ public class controller {
     private final aluguelRepository aluguelRepo;
     private final jogoRepository jogoRepo;
 
+    @Autowired
     public controller(clienteRepository clienteRepo, individualRepository individualRepo, empresarialRepository empresarialRepo, aluguelRepository aluguelRepo, jogoRepository jogoRepo) {
         this.aluguelRepo = aluguelRepo;
         this.individualRepo = individualRepo;
