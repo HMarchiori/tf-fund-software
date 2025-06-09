@@ -29,10 +29,50 @@ LISTA DE ENDPOINTS:
 6. Endpoint: GET /acmegames/cadastro/listaalugueis
 
 7. Endpoint: POST /acmegames/cadastro/cadjogo
+--Como passar os parâmetros para o Endpoint--
+{
+  "tipoJogo": "eletronico",
+  "nome": "Super Mario Bros",
+  "valorBase": 150.00,
+  "tipo": "AVENTURA",
+  "plataforma": "Nintendo Switch"
+}
+
+
 
 8. Endpoint: POST /acmegames/cadastro/cadcliente
+--Como passar os parâmetros para o Endpoint--
+{
+    "nome": "Bryan",
+    "endereco": "rua das adalias, 549",
+    "individual": {
+        "cpf": "60105238007"
+    }
+}
+
+---------------CNPJ-----------------------
+{
+    "nome": "Bryan",
+    "endereco": "rua das adalias, 549",
+    "empresarial": {
+        "cnpj": "20105238000107"
+    }
+}
+
+
 
 9. Endpoint: POST /acmegames/cadastro/cadaluguel
+   --Como passar os parâmetros para o Endpoint--
+   {
+    "periodo" : 10,
+    "cliente" : {
+        "id" : 1
+    },
+    "jogo":{
+        "tipoJogo" : "eletronico",
+        "codigo": 1
+    }
+}
 
 10. Endpoint: GET /acmegames/cliente/aluguel/:numero
 
