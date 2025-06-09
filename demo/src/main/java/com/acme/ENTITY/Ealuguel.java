@@ -13,7 +13,12 @@ public class Ealuguel {
     private Integer identificador;
     private LocalDateTime dataInicio;
     private int periodo;
+    //Join na coluna cliente
     @JoinColumn(name = "id")
     @ManyToOne
     private ECliente cliente;
+    //Join na coluna jogo   
+    @JoinColumn(name = "codigo") 
+    @ManyToOne
+    private Ejogo jogo;
 }
