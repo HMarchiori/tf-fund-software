@@ -3,6 +3,8 @@ package com.acme.ENTITY;
 import jakarta.persistence.*;
 import lombok.*;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 @Entity
 @Table(name = "individual")
