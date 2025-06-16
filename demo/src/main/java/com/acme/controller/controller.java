@@ -11,16 +11,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import com.acme.ENTITY.ECliente;
-import com.acme.ENTITY.EEmpresarial;
-import com.acme.ENTITY.Ealuguel;
-import com.acme.ENTITY.Eindividual;
-import com.acme.ENTITY.Ejogo;
-import com.acme.JPA.aluguelRepository;
-import com.acme.JPA.clienteRepository;
-import com.acme.JPA.empresarialRepository;
-import com.acme.JPA.individualRepository;
-import com.acme.JPA.jogoRepository;
+import com.acme.domain.ECliente;
+import com.acme.domain.EEmpresarial;
+import com.acme.domain.Ealuguel;
+import com.acme.domain.Eindividual;
+import com.acme.domain.Ejogo;
+import com.acme.infraestrutura.aluguelRepository;
+import com.acme.infraestrutura.clienteRepository;
+import com.acme.infraestrutura.empresarialRepository;
+import com.acme.infraestrutura.individualRepository;
+import com.acme.infraestrutura.jogoRepository;
 
 @RestController
 @RequestMapping("/acmegames/cadastro")

@@ -1,4 +1,4 @@
-package com.acme.ENTITY;
+package com.acme.domain;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 

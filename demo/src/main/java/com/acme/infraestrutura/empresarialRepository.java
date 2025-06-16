@@ -1,8 +1,8 @@
-package com.acme.JPA;
+package com.acme.infraestrutura;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.acme.ENTITY.EEmpresarial;
+import com.acme.domain.EEmpresarial;
 
 public interface empresarialRepository extends JpaRepository<EEmpresarial, String> {
 

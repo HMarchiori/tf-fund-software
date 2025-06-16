@@ -1,7 +1,8 @@
-package com.acme.JPA;
+package com.acme.infraestrutura;
 
-import com.acme.ENTITY.Ejogo;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.acme.domain.Ejogo;
 
 public interface jogoRepository  extends JpaRepository<Ejogo, Integer>{
 

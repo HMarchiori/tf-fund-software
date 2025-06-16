@@ -1,4 +1,4 @@
-package com.acme.DTO;
+package com.acme.domain.interfaces;
 
 import com.acme.enumerates.tipoMesa;
 
