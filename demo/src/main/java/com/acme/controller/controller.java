@@ -3,13 +3,7 @@ import java.time.LocalDateTime;
 import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.acme.ENTITY.ECliente;
 import com.acme.ENTITY.EEmpresarial;
@@ -49,6 +43,13 @@ public class controller {
             return clienteRepo.findAll();
 
         }
+
+    // ENDPOINT HENRIQUE
+    @GetMapping("/validajogo/{codigo}")
+    public boolean validaJogo(@PathVariable String codigo) {
+        int codigoInt = Integer.parseInt(codigo);
+        return jogoRepo.existsById(codigoInt);
+    }
 
         //Endpoint para cadastrar cliente
 
