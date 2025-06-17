@@ -1,7 +1,9 @@
 package com.acme.aplicacao.casos;
 
 import com.acme.dominio.persistencia.IJogoRepositorio;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UC_ValidaJogo {
     private final IJogoRepositorio repositorio;
 
@@ -9,19 +11,10 @@ public class UC_ValidaJogo {
         this.repositorio = repositorio;
     }
 
-    public boolean executar(int codigo) {
-
-        if (codigo <= 0) {
-            return false;
-        }
-
-        var jogos = repositorio.buscarPorCodigo(codigo);
-
-        if (jogos.isEmpty()) {
-            return false;
-        }
-
-        var jogo = jogos.get(0);
-        return jogo != null && jogo.getCodigo() == codigo;
+    public boolean validarJogo(int codigo) {
+        return repositorio.buscarPorCodigo(codigo).stream()
+                .findFirst()
+                .map(jogo -> jogo.getCodigo() == codigo)
+                .orElse(false);
     }
 }
