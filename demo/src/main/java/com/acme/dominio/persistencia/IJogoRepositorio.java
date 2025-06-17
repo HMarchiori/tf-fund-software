@@ -1,14 +1,16 @@
 package com.acme.dominio.persistencia;
 
 import com.acme.dominio.modelo.jogo.Jogo;
-import org.springframework.stereotype.Component;
+
 
 import java.util.List;
+import java.util.Optional;
 
-// temporário!!
-@Component
+
 public interface IJogoRepositorio {
     void cadastrar(Jogo jogo);
     List<Jogo> buscarTodos();
-    List<Jogo> buscarPorCodigo(int codigo);
+    Optional<Jogo> buscarPorCodigo(int codigo);
+
+    boolean existsByCodigo(int codigo);
 }

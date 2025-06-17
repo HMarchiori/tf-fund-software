@@ -6,6 +6,9 @@ import com.acme.adaptadores.dto.jogo.JogoMesaDTO;
 import com.acme.dominio.modelo.jogo.Jogo;
 import com.acme.dominio.modelo.jogo.JogoEletronico;
 import com.acme.dominio.modelo.jogo.JogoMesa;
+import com.acme.frameworks.entity.EJogo;
+import com.acme.frameworks.entity.EJogoEletronico;
+import com.acme.frameworks.entity.EJogoMesa;
 
 public class JogoMapper {
 
@@ -45,5 +48,43 @@ public class JogoMapper {
             );
         }
         throw new IllegalArgumentException("Tipo de Jogo desconhecido: " + jogo.getClass().getName());
+    }
+
+    public static EJogo toEntity(Jogo jogo) {
+        if (jogo instanceof JogoMesa jogoMesa) {
+            EJogoMesa entity = new EJogoMesa();
+            entity.setCodigo(jogoMesa.getCodigo());
+            entity.setNome(jogoMesa.getNome());
+            entity.setValorBase(jogoMesa.getValorBase());
+            entity.setTipo(jogoMesa.getTipo());
+            entity.setNumeroPecas(jogoMesa.getNumeroPecas());
+            return entity;
+        } else if (jogo instanceof JogoEletronico jogoEletronico) {
+            EJogoEletronico entity = new EJogoEletronico();
+            entity.setCodigo(jogoEletronico.getCodigo());
+            entity.setNome(jogoEletronico.getNome());
+            entity.setValorBase(jogoEletronico.getValorBase());
+            entity.setTipo(jogoEletronico.getTipo());
+            entity.setPlataforma(jogoEletronico.getPlataforma());
+            return entity;
+        }
+        throw new IllegalArgumentException("Tipo de Jogo desconhecido");
+    }
+
+    public static Jogo toDomain(EJogo entity) {
+        if (entity instanceof EJogoMesa jogoMesa) {
+            JogoMesa domain = new JogoMesa(jogoMesa.getTipo(), jogoMesa.getNumeroPecas());
+            domain.setCodigo(jogoMesa.getCodigo());
+            domain.setNome(jogoMesa.getNome());
+            domain.setValorBase(jogoMesa.getValorBase());
+            return domain;
+        } else if (entity instanceof EJogoEletronico jogoEletronico) {
+            JogoEletronico domain = new JogoEletronico(jogoEletronico.getTipo(), jogoEletronico.getPlataforma());
+            domain.setCodigo(jogoEletronico.getCodigo());
+            domain.setNome(jogoEletronico.getNome());
+            domain.setValorBase(jogoEletronico.getValorBase());
+            return domain;
+        }
+        throw new IllegalArgumentException("Tipo de Entity desconhecido");
     }
 }

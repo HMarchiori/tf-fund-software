@@ -12,9 +12,7 @@ public class UC_ValidaJogo {
     }
 
     public boolean validarJogo(int codigo) {
-        return repositorio.buscarPorCodigo(codigo).stream()
-                .findFirst()
-                .map(jogo -> jogo.getCodigo() == codigo)
-                .orElse(false);
+        return repositorio.buscarPorCodigo(codigo).isPresent();
     }
+
 }

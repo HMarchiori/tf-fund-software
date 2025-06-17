@@ -2,10 +2,15 @@ package com.acme.adaptadores.repository;
 
 import com.acme.frameworks.entity.EJogo;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import java.util.List;
+import java.util.Optional;
 
-public interface IJogoJpaRepository extends JpaRepository<EJogo, Long> {
-    List<EJogo> todos();
-    List<EJogo> porCodigo(long codigo);
+@Repository
+public interface IJogoJpaRepository extends JpaRepository<EJogo, Integer> {
+
+    @Override
+    Optional<EJogo> findById(Integer integer);
+
+    boolean existsByCodigo(int codigo);
 }

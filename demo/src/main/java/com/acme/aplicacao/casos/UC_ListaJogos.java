@@ -10,7 +10,6 @@ import java.util.List;
 @Service
 public class UC_ListaJogos {
 
-    @Autowired
     public final IJogoRepositorio repositorio;
 
     public UC_ListaJogos(IJogoRepositorio repositorio) {
