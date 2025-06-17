@@ -11,6 +11,5 @@ public interface IJogoRepositorio {
     void cadastrar(Jogo jogo);
     List<Jogo> buscarTodos();
     Optional<Jogo> buscarPorCodigo(int codigo);
-
     boolean existsByCodigo(int codigo);
 }

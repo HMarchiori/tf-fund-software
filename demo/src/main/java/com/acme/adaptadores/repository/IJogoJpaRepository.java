@@ -4,13 +4,13 @@ import com.acme.frameworks.entity.EJogo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
 public interface IJogoJpaRepository extends JpaRepository<EJogo, Integer> {
-
+    List<EJogo> findByCodigo(Integer codigo);
     @Override
-    Optional<EJogo> findById(Integer integer);
+    List<EJogo> findAll();
 
-    boolean existsByCodigo(int codigo);
 }

@@ -40,6 +40,6 @@ public class JogoJpaImpl implements IJogoRepositorio {
 
     @Override
     public boolean existsByCodigo(int codigo) {
-        return jogoJpaRepository.existsByCodigo(codigo);
+        return jogoJpaRepository.findById(codigo).isPresent();
     }
 }

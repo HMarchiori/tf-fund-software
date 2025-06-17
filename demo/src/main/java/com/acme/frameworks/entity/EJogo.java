@@ -16,7 +16,6 @@ import lombok.NoArgsConstructor;
 public abstract class EJogo {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer codigo;
 
     private String nome;
