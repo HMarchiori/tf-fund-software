@@ -17,7 +17,7 @@ public class UC_ListaJogos {
     }
 
     public List<Jogo> listarJogos() {
-        return repositorio.buscarTodos();
+        return repositorio.getJogos();
     }
 
 }

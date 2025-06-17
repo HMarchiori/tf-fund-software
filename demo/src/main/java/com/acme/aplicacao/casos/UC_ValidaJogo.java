@@ -12,7 +12,7 @@ public class UC_ValidaJogo {
     }
 
     public boolean validarJogo(int codigo) {
-        return repositorio.existsByCodigo(codigo);
+        return repositorio.existeJogoPorId(codigo);
     }
 
 }

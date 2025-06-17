@@ -16,7 +16,9 @@ import lombok.NoArgsConstructor;
 public class EJogoEletronico extends EJogo {
 
     @Enumerated(EnumType.STRING)
+    @Column(nullable = true)
     private TipoEletronico tipo;
 
+    @Column(nullable = true)
     private String plataforma;
 }

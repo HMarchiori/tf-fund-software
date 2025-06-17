@@ -18,6 +18,7 @@ public class EJogoMesa extends EJogo {
     @Enumerated(EnumType.STRING)
     private TipoMesa tipo;
 
+
     @Column(name = "numero_pecas")
     private Integer numeroPecas;
 }

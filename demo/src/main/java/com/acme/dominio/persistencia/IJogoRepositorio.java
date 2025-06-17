@@ -8,8 +8,7 @@ import java.util.Optional;
 
 
 public interface IJogoRepositorio {
-    void cadastrar(Jogo jogo);
-    List<Jogo> buscarTodos();
-    Optional<Jogo> buscarPorCodigo(int codigo);
-    boolean existsByCodigo(int codigo);
+    List<Jogo> getJogos();
+    Jogo getJogoPorId(Integer id);
+    boolean existeJogoPorId(Integer id);
 }
