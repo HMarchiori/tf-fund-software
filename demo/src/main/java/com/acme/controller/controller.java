@@ -45,10 +45,11 @@ public class controller {
         }
 
     // ENDPOINT HENRIQUE
-    @GetMapping("/validajogo/{codigo}")
-    public boolean validaJogo(@PathVariable String codigo) {
-        int codigoInt = Integer.parseInt(codigo);
-        return jogoRepo.existsById(codigoInt);
+    @GetMapping("/validajogo")
+    public boolean validaJogo(@RequestParam("codigo") Integer codigo) {
+        // Verifica se o jogo existe no repositório
+        return jogoRepo.existsById(codigo);
+        
     }
 
         //Endpoint para cadastrar cliente

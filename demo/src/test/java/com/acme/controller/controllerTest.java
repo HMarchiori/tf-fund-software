@@ -26,18 +26,19 @@ class controllerTest {
     }
 
     @Test
-    void validaJogoExistente() {
+    void testValidaJogoExistente() {
         // Given
-        int codigoExistente = 1;
+        Integer codigoExistente = 1;
         when(jogoRepo.existsById(codigoExistente)).thenReturn(true);
 
         // When
-        boolean resultado = controller.validaJogo(String.valueOf(codigoExistente));
+        boolean resultado = controller.validaJogo(codigoExistente);
 
         // Then
         assertTrue(resultado);
         verify(jogoRepo).existsById(codigoExistente);
     }
+
 
     @Test
     void validaJogoInexistente() {
@@ -46,7 +47,7 @@ class controllerTest {
         when(jogoRepo.existsById(codigoInexistente)).thenReturn(false);
 
         // When
-        boolean resultado = controller.validaJogo(String.valueOf(codigoInexistente));
+        boolean resultado = controller.validaJogo(codigoInexistente);
 
         // Then
         assertFalse(resultado);
