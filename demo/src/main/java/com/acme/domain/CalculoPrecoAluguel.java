@@ -1,19 +1,22 @@
 package com.acme.domain;
 
-import com.acme.dominio.modelo.aluguel.Aluguel;
-import com.acme.dominio.modelo.cliente.Cliente;
-import com.acme.dominio.modelo.cliente.ClienteIndividual;
-import com.acme.dominio.modelo.jogo.Jogo;
-import com.acme.dominio.modelo.jogo.JogoEletronico;
-import com.acme.dominio.modelo.jogo.JogoMesa;
+import com.acme.domain.Ealuguel;
+import com.acme.domain.ECliente;
+import com.acme.domain.Eindividual;
+import com.acme.domain.Ejogo;
+import com.acme.domain.EjogoEletronico;
+import com.acme.domain.EjogoMesa;
+import com.acme.enumerates.tipoMesa;
+import com.acme.enumerates.tipoEletronico;
+
 
 public class CalculoPrecoAluguel {
 
-    public static double calcular(Aluguel aluguel) {
+    public static double calcular(Ealuguel aluguel) {
         double precoJogo = CalculoPrecoJogo.calcular(aluguel.getJogo());
-        Cliente cliente = aluguel.getCliente();
+        ECliente cliente = aluguel.getCliente();
 
-        if (cliente instanceof ClienteIndividual) {
+        if (cliente instanceof  Eindividual) {
             return calcularPrecoIndividual(precoJogo, aluguel.getPeriodo());
         } else {
             return calcularPrecoEmpresa(precoJogo, aluguel.getPeriodo(), aluguel.getJogo());
@@ -30,12 +33,12 @@ public class CalculoPrecoAluguel {
         return 0.75 * (precoJogo * periodo);
     }
 
-    public static double calcularPrecoEmpresa(double precoJogo, int periodo, Jogo jogo) {
+    public static double calcularPrecoEmpresa(double precoJogo, int periodo, Ejogo jogo) {
         if (precoJogo <= 0 || jogo == null) {
             throw new IllegalArgumentException("Preço do jogo deve ser maior que zero.");
         }
-        if (jogo instanceof JogoEletronico) return precoJogo * periodo;
-        else if (jogo instanceof JogoMesa) return  0.85 * (precoJogo * periodo);
+        if (jogo instanceof EjogoEletronico) return precoJogo * periodo;
+        else if (jogo instanceof EjogoMesa) return  0.85 * (precoJogo * periodo);
         return precoJogo * periodo;
     }
 

@@ -6,7 +6,7 @@ import lombok.*;
 @Data
 @Entity
 @Table(name = "individual")
-public class Eindividual {
+public class Eindividual extends ECliente {
     
     @Id
     @Column(name = "cpf")
