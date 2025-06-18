@@ -35,4 +35,10 @@ public class JogoJpaImpl implements IJogoRepositorio {
         var jogoEntity = repository.findByCodigo(id);
         return jogoEntity != null;
     }
+
+    @Override
+    public void salvarJogo(Jogo jogo) {
+        var jogoEntity = JogoMapper.toEntity(jogo);
+        repository.save(jogoEntity);
+    }
 }

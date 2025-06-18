@@ -11,7 +11,7 @@ public class UC_ValidaJogo {
         this.repositorio = repositorio;
     }
 
-    public boolean validarJogo(int codigo) {
+    public boolean executarUC(int codigo) {
         return repositorio.existeJogoPorId(codigo);
     }
 

@@ -19,6 +19,5 @@ public class EJogoMesa extends EJogo {
     private TipoMesa tipo;
 
 
-    @Column(name = "numero_pecas")
     private Integer numeroPecas;
 }

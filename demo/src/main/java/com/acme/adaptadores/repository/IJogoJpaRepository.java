@@ -9,4 +9,5 @@ import java.util.List;
 public interface IJogoJpaRepository extends CrudRepository<EJogo, Integer> {
     List<EJogo> findAll();
     EJogo findByCodigo(Integer codigo);
+    EJogo save(EJogo jogo);
 }

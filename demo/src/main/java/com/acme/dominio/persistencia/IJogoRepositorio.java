@@ -11,4 +11,5 @@ public interface IJogoRepositorio {
     List<Jogo> getJogos();
     Jogo getJogoPorId(Integer id);
     boolean existeJogoPorId(Integer id);
+    void salvarJogo(Jogo jogo);
 }
