@@ -1,5 +1,5 @@
 package com.acme.adaptadores.dto.jogo;
 
-public record ClienteDTO(String nome, String email, String telefone) {
+public record ClienteDTO(int numero, String nome, String endereco) {
 
 }

@@ -1,11 +1,21 @@
 package com.acme.aplicacao.casos;
 
+import com.acme.dominio.modelo.cliente.Cliente;
+import com.acme.dominio.persistencia.IClienteRepositorio;
+import org.springframework.stereotype.Service;
 
-@service
+@Service
 public class UC_CadastroCliente {
-    private final IClienteRepositorio clienteRepositorio;
+    private final com.acme.dominio.persistencia.IClienteRepositorio clienteRepositorio;
 
     public UC_CadastroCliente(IClienteRepositorio clienteRepositorio) {
         this.clienteRepositorio = clienteRepositorio;
+
     }
+    public void executarUC(int numero, String nome, String endereco) {
+        Cliente cliente = new Cliente(numero, nome, endereco);
+        clienteRepositorio.Save(cliente);
+    }
+
 }
+
