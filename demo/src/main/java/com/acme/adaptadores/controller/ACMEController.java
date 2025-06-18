@@ -25,6 +25,8 @@ public class ACMEController {
         this.cadastraJogo = cadastraJogo;
     }
 
+    
+
     @GetMapping("/listajogos")
     public ResponseEntity<List<JogoDTO>> listarJogos() {
         List<JogoDTO> jogos = listaJogos.executarUC().stream()
