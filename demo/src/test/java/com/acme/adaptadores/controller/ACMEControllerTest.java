@@ -1,46 +1,52 @@
 package com.acme.adaptadores.controller;
 
-import com.acme.aplicacao.casos.UC_ListaJogos;
-import com.acme.aplicacao.casos.UC_ValidaJogo;
+import com.acme.adaptadores.mapper.JogoMapper;
+import com.acme.dominio.modelo.jogo.structures.TipoEletronico;
+import com.acme.frameworks.JogoJpaImpl;
+import com.acme.frameworks.entity.EJogoEletronico;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.ResponseEntity;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
+@SpringBootTest
 class ACMEControllerTest {
 
-    @Mock
-    private UC_ValidaJogo validaJogo;
-
-    @Mock
-    UC_ListaJogos listaJogos;
-
-    @InjectMocks
+    @Autowired
     private ACMEController acmeController;
+
+
+
+    @Autowired
+    private JogoJpaImpl repositorio;
 
     @BeforeEach
     void setUp() {
-        MockitoAnnotations.openMocks(this);
+        EJogoEletronico ejogo = new EJogoEletronico();
+        ejogo.setCodigo(1);
+        ejogo.setNome("The Sims 4");
+        ejogo.setValorBase(100.0);
+        ejogo.setTipo(TipoEletronico.SIMULACAO);
+        ejogo.setPlataforma("PC");
+
+        var jogo = JogoMapper.toDomain(ejogo);
+        repositorio.salvarJogo(jogo);
     }
 
-    // Métodos para validar o jogo
-
     @Test
-    void validaJogoExistente(){
+    void validaJogoExistente() {
         Integer codigo = 1;
-        assertTrue(Boolean.TRUE.equals(acmeController.validarJogo(codigo).getBody()));
-
+        ResponseEntity<Boolean> response = acmeController.validarJogo(codigo);
+        assertEquals(Boolean.TRUE, response.getBody());
     }
 
     @Test
-    void validaJogoInexistente(){
+    void validaJogoInexistente() {
         Integer codigo = 999;
-        assertFalse(Boolean.TRUE.equals(acmeController.validarJogo(codigo).getBody()));
-
+        ResponseEntity<Boolean> response = acmeController.validarJogo(codigo);
+        assertEquals(Boolean.FALSE, response.getBody());
     }
 }

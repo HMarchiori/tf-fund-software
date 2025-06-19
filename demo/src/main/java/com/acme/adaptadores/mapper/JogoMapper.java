@@ -73,11 +73,13 @@ public class JogoMapper {
 
     public static Jogo toDomain(EJogo entity) {
         if (entity instanceof EJogoMesa jogoMesa) {
-            JogoMesa domain = new JogoMesa(jogoMesa.getTipo(), jogoMesa.getNumeroPecas());
+            int numeroPecas = jogoMesa.getNumeroPecas() != null ? jogoMesa.getNumeroPecas() : 0;  // default 0, ou o que for chic
+            JogoMesa domain = new JogoMesa(jogoMesa.getTipo(), numeroPecas);
             domain.setCodigo(jogoMesa.getCodigo());
             domain.setNome(jogoMesa.getNome());
             domain.setValorBase(jogoMesa.getValorBase());
             return domain;
+
         } else if (entity instanceof EJogoEletronico jogoEletronico) {
             JogoEletronico domain = new JogoEletronico(jogoEletronico.getTipo(), jogoEletronico.getPlataforma());
             domain.setCodigo(jogoEletronico.getCodigo());

@@ -1,16 +1,13 @@
 package com.acme.adaptadores.repository;
 
 import com.acme.frameworks.entity.EJogo;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
-import java.util.Optional;
 
-@Repository
-public interface IJogoJpaRepository extends JpaRepository<EJogo, Integer> {
-    List<EJogo> findByCodigo(Integer codigo);
-    @Override
+
+public interface IJogoJpaRepository extends CrudRepository<EJogo, Integer> {
     List<EJogo> findAll();
-
+    EJogo findByCodigo(Integer codigo);
+    EJogo save(EJogo jogo);
 }

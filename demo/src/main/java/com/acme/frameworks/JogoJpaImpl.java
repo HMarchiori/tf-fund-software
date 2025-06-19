@@ -1,45 +1,44 @@
 package com.acme.frameworks;
 
-import com.acme.adaptadores.mapper.JogoMapper;
 import com.acme.adaptadores.repository.IJogoJpaRepository;
 import com.acme.dominio.modelo.jogo.Jogo;
+import com.acme.adaptadores.mapper.*;
 import com.acme.dominio.persistencia.IJogoRepositorio;
-import com.acme.frameworks.entity.EJogo;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 public class JogoJpaImpl implements IJogoRepositorio {
 
-    private final IJogoJpaRepository jogoJpaRepository;
+    private final IJogoJpaRepository repository;
 
-    public JogoJpaImpl(IJogoJpaRepository jogoJpaRepository) {
-        this.jogoJpaRepository = jogoJpaRepository;
+    public JogoJpaImpl(IJogoJpaRepository repository) {
+        this.repository = repository;
     }
 
     @Override
-    public void cadastrar(Jogo jogo) {
-        EJogo entity = JogoMapper.toEntity(jogo);
-        jogoJpaRepository.save(entity);
-    }
-
-    @Override
-    public List<Jogo> buscarTodos() {
-        return jogoJpaRepository.findAll().stream()
+    public List<Jogo> getJogos() {
+        return repository.findAll().stream()
                 .map(JogoMapper::toDomain)
                 .toList();
     }
 
     @Override
-    public Optional<Jogo> buscarPorCodigo(int codigo) {
-        return jogoJpaRepository.findById(codigo)
-                .map(JogoMapper::toDomain);
+    public Jogo getJogoPorId(Integer codigo) {
+        var jogoEntity = repository.findByCodigo(codigo);
+        return JogoMapper.toDomain(jogoEntity);
     }
 
     @Override
-    public boolean existsByCodigo(int codigo) {
-        return jogoJpaRepository.findById(codigo).isPresent();
+    public boolean existeJogoPorId(Integer id) {
+        var jogoEntity = repository.findByCodigo(id);
+        return jogoEntity != null;
+    }
+
+    @Override
+    public void salvarJogo(Jogo jogo) {
+        var jogoEntity = JogoMapper.toEntity(jogo);
+        repository.save(jogoEntity);
     }
 }
