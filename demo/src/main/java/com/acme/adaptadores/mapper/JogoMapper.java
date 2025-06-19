@@ -6,9 +6,9 @@ import com.acme.adaptadores.dto.jogo.JogoMesaDTO;
 import com.acme.dominio.modelo.jogo.Jogo;
 import com.acme.dominio.modelo.jogo.JogoEletronico;
 import com.acme.dominio.modelo.jogo.JogoMesa;
-import com.acme.frameworks.entity.EJogo;
-import com.acme.frameworks.entity.EJogoEletronico;
-import com.acme.frameworks.entity.EJogoMesa;
+import com.acme.frameworks.entity.jogo.EJogo;
+import com.acme.frameworks.entity.jogo.EJogoEletronico;
+import com.acme.frameworks.entity.jogo.EJogoMesa;
 
 public class JogoMapper {
 

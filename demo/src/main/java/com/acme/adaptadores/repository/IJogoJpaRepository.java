@@ -1,6 +1,6 @@
 package com.acme.adaptadores.repository;
 
-import com.acme.frameworks.entity.EJogo;
+import com.acme.frameworks.entity.jogo.EJogo;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;

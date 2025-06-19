@@ -1,4 +1,4 @@
-package com.acme.frameworks.entity;
+package com.acme.frameworks.entity.jogo;
 
 import com.acme.dominio.modelo.jogo.structures.TipoEletronico;
 import jakarta.persistence.*;

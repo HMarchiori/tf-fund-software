@@ -1,10 +1,11 @@
-package com.acme.frameworks.entity;
+package com.acme.frameworks.entity.cliente;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import lombok.*;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

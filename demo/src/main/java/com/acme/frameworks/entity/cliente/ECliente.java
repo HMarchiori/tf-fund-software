@@ -1,4 +1,4 @@
-package com.acme.frameworks.entity;
+package com.acme.frameworks.entity.cliente;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -7,10 +7,10 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "tipo_cliente", discriminatorType = DiscriminatorType.STRING)
+@DiscriminatorColumn(name = "tipo", discriminatorType = DiscriminatorType.STRING)
 @Entity
 @Table(name = "cliente")
-public abstract class ECliente {
+public class ECliente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,4 +22,5 @@ public abstract class ECliente {
 
     @Column(name = "endereco")
     private String endereco;
+
 }

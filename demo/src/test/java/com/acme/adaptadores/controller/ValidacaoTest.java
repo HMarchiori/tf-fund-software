@@ -4,7 +4,7 @@ import com.acme.adaptadores.controller.validacao.ValidacaoController;
 import com.acme.adaptadores.dto.validate.ValidateJogoDTO;
 import com.acme.adaptadores.mapper.JogoMapper;
 import com.acme.dominio.modelo.jogo.structures.TipoEletronico;
-import com.acme.frameworks.entity.EJogoEletronico;
+import com.acme.frameworks.entity.jogo.EJogoEletronico;
 import com.acme.frameworks.impl.JogoJpaImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

@@ -1,4 +1,4 @@
-package com.acme.frameworks.entity;
+package com.acme.frameworks.entity.jogo;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

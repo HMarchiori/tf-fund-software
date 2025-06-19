@@ -1,6 +1,6 @@
 package com.acme.adaptadores.repository;
 
-import com.acme.frameworks.entity.*;
+import com.acme.frameworks.entity.cliente.ECliente;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
