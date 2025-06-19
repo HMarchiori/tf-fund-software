@@ -1,5 +1,6 @@
 package com.acme.adaptadores.controller.validacao;
 
+import com.acme.adaptadores.dto.validate.ValidateClienteDTO;
 import com.acme.adaptadores.dto.validate.ValidateJogoDTO;
 import com.acme.aplicacao.casos.validacao.UC_ValidaJogo;
 import org.springframework.http.ResponseEntity;
@@ -21,9 +22,11 @@ public class ValidacaoController {
         return ResponseEntity.ok(isValido);
     }
 
-
-    // TODO
-    // Endpoint: POST /acmegames/validacliente
+    @PostMapping("/validacliente")
+    public ResponseEntity<Boolean> validarCliente(@RequestBody ValidateClienteDTO dto) {
+        boolean isValido = validaJogo.executarUC(dto.numero());
+        return ResponseEntity.ok(isValido);
+    }
 
     // TODO
     // Endpoint: POST /acmegames/validaaluguel

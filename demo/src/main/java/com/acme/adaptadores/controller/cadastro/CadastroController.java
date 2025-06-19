@@ -2,6 +2,7 @@ package com.acme.adaptadores.controller.cadastro;
 
 import com.acme.adaptadores.dto.cliente.ClienteDTO;
 import com.acme.adaptadores.dto.jogo.JogoDTO;
+import com.acme.adaptadores.mapper.ClienteMapper;
 import com.acme.adaptadores.mapper.JogoMapper;
 import com.acme.aplicacao.casos.cadastro.UC_CadastraJogo;
 import com.acme.aplicacao.casos.cadastro.UC_CadastroCliente;
@@ -34,11 +35,7 @@ public class CadastroController {
 
     @PostMapping("/cadcliente")
     public ResponseEntity<Void> cadastrarCliente(@RequestBody ClienteDTO clienteDTO) {
-        // amigo, o que precisa ser feito aqui é converter o DTO para o domínio
-        // dá para criar uma classe Mapper!! só copiar o que tá no JogoMapper.
-        // qualquer coisa estou sempre aqui hehehe
-        // TODO: vou deixar um placeholder ok>
-        Cliente cliente = new Cliente(clienteDTO.getNumero(), clienteDTO.getNome(), clienteDTO.getEndereco());
+        Cliente cliente = ClienteMapper.toDomain(clienteDTO);
         cadastroCliente.executarUC(cliente);
         return ResponseEntity.ok().build();
     }
