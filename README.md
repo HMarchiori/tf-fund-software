@@ -4,19 +4,19 @@ Trabalho final da diciplina de fundamentos de desenvolvimento de software
 LISTA DE TAREFAS:
 
 * Criação de Relatório com
-1. o Diagrama de classes que apresente a arquitetura do sistema. <PIETRO>
-2. o Padrões utilizados no sistema. <HENRIQUE>
-3. o URL do repositório Git. <HENRIQUE>
-* Cuidar da lógica de entidades + persistência. <BRYAN E PIETRO>
-* Cuidar dos Serviços <BRYAN>
-* Criar endpoints <TODOS>
-* Testes Unitários <HENRIQUE>
-* Testes de Endpoints <HENRIQUE>
-* PONTO EXTRA: FRONT <BRYAN>
+1. o Diagrama de classes que apresente a arquitetura do sistema.
+2. o Padrões utilizados no sistema.
+3. o URL do repositório Git. 
+* Cuidar da lógica de entidades + persistência.
+* Cuidar dos Serviços 
+* Criar endpoints
+* Testes Unitários 
+* Testes de Endpoints 
+* PONTO EXTRA: FRONT 
 
 LISTA DE ENDPOINTS:
+
 1. Endpoint: POST /acmegames/validajogo
-   <HENRIQUE>
 
 2. Endpoint: POST /acmegames/validacliente
 

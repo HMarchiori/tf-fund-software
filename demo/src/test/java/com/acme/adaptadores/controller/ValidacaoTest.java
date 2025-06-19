@@ -1,9 +1,10 @@
 package com.acme.adaptadores.controller;
 
+import com.acme.adaptadores.controller.validacao.ValidacaoController;
 import com.acme.adaptadores.mapper.JogoMapper;
 import com.acme.dominio.modelo.jogo.structures.TipoEletronico;
-import com.acme.frameworks.impl.JogoJpaImpl;
 import com.acme.frameworks.entity.EJogoEletronico;
+import com.acme.frameworks.impl.JogoJpaImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,15 +14,13 @@ import org.springframework.http.ResponseEntity;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-class ACMEControllerTest {
+class ValidacaoTest {
 
     @Autowired
-    private ACMEController acmeController;
-
-
+    private ValidacaoController controller;
 
     @Autowired
-    private JogoJpaImpl repositorio;
+    private JogoJpaImpl repository;
 
     @BeforeEach
     void setUp() {
@@ -33,20 +32,21 @@ class ACMEControllerTest {
         ejogo.setPlataforma("PC");
 
         var jogo = JogoMapper.toDomain(ejogo);
-        repositorio.salvarJogo(jogo);
+        repository.salvarJogo(jogo);
     }
 
     @Test
     void validaJogoExistente() {
         Integer codigo = 1;
-        ResponseEntity<Boolean> response = acmeController.validarJogo(codigo);
+        ResponseEntity<Boolean> response = controller.validarJogo(codigo);
         assertEquals(Boolean.TRUE, response.getBody());
     }
 
     @Test
     void validaJogoInexistente() {
         Integer codigo = 999;
-        ResponseEntity<Boolean> response = acmeController.validarJogo(codigo);
+        ResponseEntity<Boolean> response = controller.validarJogo(codigo);
         assertEquals(Boolean.FALSE, response.getBody());
     }
+
 }
