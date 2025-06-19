@@ -23,3 +23,23 @@ VALUES (7, 'Xadrez Clássico', 80.00, 'mesa', 'TABULEIRO', NULL, 32);
 
 INSERT INTO jogo (codigo, nome, valor_base, dtype, tipo, plataforma, numero_pecas)
 VALUES (8, 'Jogo da Vida', 60.00, 'mesa', 'TABULEIRO', NULL, 80);
+
+
+
+INSERT INTO cliente (numero, nome, endereco, tipo_cliente, cpf)
+VALUES (1, 'Emily Thompson', '123 Ocean Drive, Miami, FL', 'INDIVIDUAL', '111.222.333-44');
+
+INSERT INTO cliente (numero, nome, endereco, tipo_cliente, cpf)
+VALUES (2, 'Alexander Cooper', '456 Park Avenue, New York, NY', 'INDIVIDUAL', '555.666.777-88');
+
+INSERT INTO cliente (numero, nome, endereco, tipo_cliente, cpf)
+VALUES (3, 'Isabella Moreau', '789 Sunset Blvd, Los Angeles, CA', 'INDIVIDUAL', '999.000.111-22');
+
+INSERT INTO cliente (numero, nome, endereco, tipo_cliente, cnpj, nome_fantasia)
+VALUES (4, 'Aurora Tech Inc.', '10 Silicon Valley Rd, Palo Alto, CA', 'EMPRESARIAL', '12.345.678/0001-99', 'Aurora Innovations');
+
+INSERT INTO cliente (numero, nome, endereco, tipo_cliente, cnpj, nome_fantasia)
+VALUES (5, 'Velvet Events Ltd.', '99 Queen Street, Toronto, ON', 'EMPRESARIAL', '98.765.432/0001-11', 'Velvet Weddings');
+
+INSERT INTO cliente (numero, nome, endereco, tipo_cliente, cnpj, nome_fantasia)
+VALUES (6, 'Stellar Media Group', '500 Oxford Street, London, UK', 'EMPRESARIAL', '66.777.888/0001-55', 'Stellar Entertainment');

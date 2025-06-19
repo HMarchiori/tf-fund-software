@@ -9,12 +9,9 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@DiscriminatorValue("EMPRESARIAL")
-public class EEmpresarial extends ECliente {
+@DiscriminatorValue("INDIVIDUAL")
+public class EIndividual extends ECliente {
 
-    @Column(name = "cnpj")
-    private String cnpj;
-
-    @Column(name = "nome_fantasia")
-    private String nomeFantasia;
+    @Column(name = "cpf")
+    private String cpf;
 }

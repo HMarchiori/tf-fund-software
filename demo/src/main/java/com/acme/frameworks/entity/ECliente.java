@@ -1,22 +1,16 @@
 package com.acme.frameworks.entity;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-
 import jakarta.persistence.*;
 import lombok.*;
 
-
-@AllArgsConstructor
-@NoArgsConstructor
-@JsonInclude(JsonInclude.Include.NON_NULL)
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "tipo_cliente", discriminatorType = DiscriminatorType.STRING)
 @Entity
 @Table(name = "cliente")
-public class ECliente {
-
-
-    // número é ID. E é INT.
-    // desconsiderar campo ID anterior
+public abstract class ECliente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,19 +22,4 @@ public class ECliente {
 
     @Column(name = "endereco")
     private String endereco;
-
-    // imagino que daqui pra frente está ok!!
-
-    @OneToOne
-    @JoinColumn(name = "cpf" )
-    private Eindividual individual;
-
-    @OneToOne
-    @JoinColumn(name = "cnpj")
-    private EEmpresarial empresarial;
-    
-
-
-
- 
 }

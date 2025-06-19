@@ -8,7 +8,7 @@ import com.acme.dominio.modelo.cliente.ClienteEmpresarial;
 import com.acme.dominio.modelo.cliente.ClienteIndividual;
 import com.acme.frameworks.entity.ECliente;
 import com.acme.frameworks.entity.EEmpresarial;
-import com.acme.frameworks.entity.Eindividual;
+import com.acme.frameworks.entity.EIndividual;
 
 
 public class ClienteMapper {
@@ -54,7 +54,7 @@ public class ClienteMapper {
     }
 
     public static Cliente toDomain(ECliente entity) {
-        if (entity instanceof Eindividual individual) {
+        if (entity instanceof EIndividual individual) {
             return new ClienteIndividual(
                     individual.getNumero(),
                     individual.getNome(),
@@ -76,7 +76,7 @@ public class ClienteMapper {
 
     public static ECliente toEntity(Cliente cliente) {
         if (cliente instanceof ClienteIndividual individual) {
-            Eindividual entity = new Eindividual();
+            EIndividual entity = new EIndividual();
             entity.setNumero(individual.getNumero());
             entity.setNome(individual.getNome());
             entity.setEndereco(individual.getEndereco());
