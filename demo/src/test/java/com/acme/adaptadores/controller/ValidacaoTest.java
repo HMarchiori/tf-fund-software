@@ -1,6 +1,7 @@
 package com.acme.adaptadores.controller;
 
 import com.acme.adaptadores.controller.validacao.ValidacaoController;
+import com.acme.adaptadores.dto.validate.ValidateJogoDTO;
 import com.acme.adaptadores.mapper.JogoMapper;
 import com.acme.dominio.modelo.jogo.structures.TipoEletronico;
 import com.acme.frameworks.entity.EJogoEletronico;
@@ -37,14 +38,14 @@ class ValidacaoTest {
 
     @Test
     void validaJogoExistente() {
-        Integer codigo = 1;
+        ValidateJogoDTO codigo = new ValidateJogoDTO(1);
         ResponseEntity<Boolean> response = controller.validarJogo(codigo);
         assertEquals(Boolean.TRUE, response.getBody());
     }
 
     @Test
     void validaJogoInexistente() {
-        Integer codigo = 999;
+        ValidateJogoDTO codigo = new ValidateJogoDTO(999);
         ResponseEntity<Boolean> response = controller.validarJogo(codigo);
         assertEquals(Boolean.FALSE, response.getBody());
     }

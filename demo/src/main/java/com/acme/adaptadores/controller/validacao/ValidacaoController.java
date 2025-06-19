@@ -1,5 +1,6 @@
 package com.acme.adaptadores.controller.validacao;
 
+import com.acme.adaptadores.dto.validate.ValidateJogoDTO;
 import com.acme.aplicacao.casos.validacao.UC_ValidaJogo;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,18 +15,12 @@ public class ValidacaoController {
         this.validaJogo = validaJogo;
     }
 
-
-    // OK MAS TENHO UM BAITA PROBLEMA NISSO AQUI!
-    // O ENDPOINT QUE ELE PEDIU NÃO PASSA O CÓDIGO NA URL,
-    // NÃO USAR ESTE ENDPOINT PARA CRIAR OS OUTROS
-    // PRECISO REFAZER.
-    // Isso é um problema para outro dia :D
-
-    @PostMapping("/validajogo/{codigo}")
-    public ResponseEntity<Boolean> validarJogo(@PathVariable Integer codigo) {
-        boolean isValido = validaJogo.executarUC(codigo);
+    @PostMapping("/validajogo")
+    public ResponseEntity<Boolean> validarJogo(@RequestBody ValidateJogoDTO dto) {
+        boolean isValido = validaJogo.executarUC(dto.codigo());
         return ResponseEntity.ok(isValido);
     }
+
 
     // TODO
     // Endpoint: POST /acmegames/validacliente
