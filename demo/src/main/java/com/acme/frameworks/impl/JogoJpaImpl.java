@@ -1,4 +1,4 @@
-package com.acme.frameworks;
+package com.acme.frameworks.impl;
 
 import com.acme.adaptadores.repository.IJogoJpaRepository;
 import com.acme.dominio.modelo.jogo.Jogo;

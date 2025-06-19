@@ -1,4 +1,4 @@
-package com.acme.aplicacao.casos;
+package com.acme.aplicacao.casos.cadastro;
 
 import com.acme.dominio.modelo.jogo.Jogo;
 import com.acme.dominio.persistencia.IJogoRepositorio;

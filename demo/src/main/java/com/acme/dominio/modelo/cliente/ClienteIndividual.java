@@ -8,9 +8,8 @@ import lombok.Setter;
 public class ClienteIndividual extends Cliente {
     private String cpf;
 
-
-    public ClienteIndividual(int numero, String nome, String endereco) {
+    public ClienteIndividual(int numero, String nome, String endereco, String cpf) {
         super(numero, nome, endereco);
+        this.cpf = cpf;
     }
-
 }

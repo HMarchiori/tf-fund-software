@@ -1,4 +1,4 @@
-package com.acme.aplicacao.casos;
+package com.acme.aplicacao.casos.cadastro;
 
 import com.acme.dominio.modelo.cliente.Cliente;
 import com.acme.dominio.persistencia.IClienteRepositorio;
@@ -12,9 +12,9 @@ public class UC_CadastroCliente {
         this.clienteRepositorio = clienteRepositorio;
 
     }
-    public void executarUC(int numero, String nome, String endereco) {
-        Cliente cliente = new Cliente(numero, nome, endereco);
-        clienteRepositorio.Save(cliente);
+
+    public void executarUC(Cliente cliente) {
+        clienteRepositorio.salvarCliente(cliente);
     }
 
 }

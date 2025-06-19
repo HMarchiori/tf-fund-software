@@ -1,12 +1,13 @@
 package com.acme.adaptadores.controller;
 
+import com.acme.adaptadores.dto.cliente.ClienteDTO;
 import com.acme.adaptadores.dto.jogo.JogoDTO;
 import com.acme.adaptadores.mapper.JogoMapper;
-import com.acme.adaptadores.dto.jogo.*;
-import com.acme.aplicacao.casos.UC_CadastraJogo;
-import com.acme.aplicacao.casos.UC_CadastroCliente;
-import com.acme.aplicacao.casos.UC_ListaJogos;
-import com.acme.aplicacao.casos.UC_ValidaJogo;
+import com.acme.aplicacao.casos.cadastro.UC_CadastraJogo;
+import com.acme.aplicacao.casos.cadastro.UC_CadastroCliente;
+import com.acme.aplicacao.casos.lista.UC_ListaJogos;
+import com.acme.aplicacao.casos.validacao.UC_ValidaJogo;
+import com.acme.dominio.modelo.cliente.Cliente;
 import com.acme.dominio.modelo.jogo.Jogo;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -32,8 +33,13 @@ public class ACMEController {
 
     
     @PostMapping("/cadastracliente")
-    public ResponseEntity<Void> cadastrarCliente(@RequestBody ) {
-        cadastroCliente.executarUC(clienteDTO);
+    public ResponseEntity<Void> cadastrarCliente(@RequestBody ClienteDTO clienteDTO) {
+        // amigo, o que precisa ser feito aqui é converter o DTO para o domínio
+        // dá para criar uma classe Mapper!! só copiar o que tá no JogoMapper.
+        // qualquer coisa estou sempre aqui hehehe
+        // TODO: vou deixar um placeholder ok>
+        Cliente cliente = new Cliente(clienteDTO.getNumero(), clienteDTO.getNome(), clienteDTO.getEndereco());
+        cadastroCliente.executarUC(cliente);
     }
 
 

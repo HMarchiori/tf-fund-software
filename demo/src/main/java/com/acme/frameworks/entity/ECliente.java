@@ -14,16 +14,22 @@ import lombok.*;
 @Table(name = "cliente")
 public class ECliente {
 
+
+    // número é ID. E é INT.
+    // desconsiderar campo ID anterior
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private long id;
+    @Column(name = "numero")
+    private int numero;
 
     @Column(name = "nome")
     private String nome;
 
     @Column(name = "endereco")
     private String endereco;
+
+    // imagino que daqui pra frente está ok!!
 
     @OneToOne
     @JoinColumn(name = "cpf" )

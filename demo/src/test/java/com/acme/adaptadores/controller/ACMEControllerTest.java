@@ -2,7 +2,7 @@ package com.acme.adaptadores.controller;
 
 import com.acme.adaptadores.mapper.JogoMapper;
 import com.acme.dominio.modelo.jogo.structures.TipoEletronico;
-import com.acme.frameworks.JogoJpaImpl;
+import com.acme.frameworks.impl.JogoJpaImpl;
 import com.acme.frameworks.entity.EJogoEletronico;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
