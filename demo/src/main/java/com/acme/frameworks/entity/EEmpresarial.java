@@ -7,10 +7,10 @@ import lombok.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class EEmpresarial {
+public class EEmpresarial extends ECliente {
     @Id
     @Column(name = "cnpj")
     private String cnpj;
-    @Column(name = "razao_social")
-    private String razaoSocial;
+    @Column(name = "nome_fantasia")
+    private String nomeFantasia;
 } 

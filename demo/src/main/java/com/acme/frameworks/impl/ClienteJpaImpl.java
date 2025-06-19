@@ -1,5 +1,6 @@
 package com.acme.frameworks.impl;
 
+import com.acme.adaptadores.mapper.ClienteMapper;
 import com.acme.adaptadores.repository.IClienteJpaRepository;
 import com.acme.dominio.modelo.cliente.Cliente;
 import com.acme.dominio.persistencia.IClienteRepositorio;
@@ -20,24 +21,25 @@ public class ClienteJpaImpl implements IClienteRepositorio {
     @Override
     public List<Cliente> getClientes() {
         return repository.findAll().stream()
-                // ISSO É UM PLACEHOLDER
-                // TODO: Implementar o mapper, só olhar o que eu fiz e copiar!
-                .map(clienteEntity -> new Cliente(clienteEntity.getNumero(), clienteEntity.getNome(), clienteEntity.getEndereco()))
+                .map(ClienteMapper::toDomain)
                 .toList();
     }
 
     @Override
-    public Cliente getClienteByNumero(Integer id) {
-        return null;
+    public Cliente getClienteByNumero(Integer numero) {
+        var clienteEntity = repository.findByNumero(numero);
+        return ClienteMapper.toDomain(clienteEntity);
     }
 
     @Override
     public void salvarCliente(Cliente cliente) {
-
+        var clienteEntity = ClienteMapper.toEntity(cliente);
+        repository.save(clienteEntity);
     }
 
     @Override
-    public boolean existeClientePorNumero(Integer id) {
-        return false;
+    public boolean existeClientePorNumero(Integer numero) {
+        var clienteEntity = repository.findByNumero(numero);
+        return clienteEntity != null;
     }
 }
