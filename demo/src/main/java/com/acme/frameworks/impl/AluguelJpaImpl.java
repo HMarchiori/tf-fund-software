@@ -43,4 +43,18 @@ public class AluguelJpaImpl implements IAluguelRepositorio {
         var aluguelEntity = repository.findByIdentificador(id);
         return aluguelEntity != null;
     }
+
+    @Override
+    public List<Aluguel> getAlugueisPorCliente(Integer numero) {
+        return repository.findAllByClienteNumero(numero).stream()
+                .map(AluguelMapper::toDomain)
+                .toList();
+    }
+
+    @Override
+    public List<Aluguel> getAlugueisPorJogo(Integer codigo) {
+        return repository.findAllByJogoCodigo(codigo).stream()
+                .map(AluguelMapper::toDomain)
+                .toList();
+    }
 }

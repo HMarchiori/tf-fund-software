@@ -1,10 +1,5 @@
 package com.acme.adaptadores.dto.cliente;
 
-
-import com.acme.adaptadores.dto.jogo.JogoEletronicoDTO;
-import com.acme.adaptadores.dto.jogo.JogoMesaDTO;
-import com.acme.dominio.modelo.cliente.ClienteEmpresarial;
-import com.acme.dominio.modelo.cliente.ClienteIndividual;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import lombok.Getter;

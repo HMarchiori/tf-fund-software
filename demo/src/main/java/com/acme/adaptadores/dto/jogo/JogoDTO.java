@@ -14,8 +14,6 @@ import lombok.Setter;
         @JsonSubTypes.Type(value = JogoMesaDTO.class, name = "mesa"),
         @JsonSubTypes.Type(value = JogoEletronicoDTO.class, name = "eletronico")
 })
-// precisamos usar este querido para o POST funcionar corretamente
-// um pouco exagerado? maybe. Porém funciona.
 public abstract class JogoDTO {
     protected int codigo;
     protected String nome;

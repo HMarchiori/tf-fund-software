@@ -80,7 +80,13 @@ public class JogoMapper {
     public static Jogo toDomain(EJogo entity) {
         if (entity instanceof EJogoMesa jogoMesa) {
             int numeroPecas = jogoMesa.getNumeroPecas() != null ? jogoMesa.getNumeroPecas() : 0;
-            JogoMesa domain = new JogoMesa(jogoMesa.getCodigo(), jogoMesa.getNome(), jogoMesa.getValorBase(), jogoMesa.getTipo(), numeroPecas);
+            JogoMesa domain = new JogoMesa(
+                    jogoMesa.getCodigo(),
+                    jogoMesa.getNome(),
+                    jogoMesa.getValorBase(),
+                    jogoMesa.getTipo(),
+                    numeroPecas
+            );
             domain.setCodigo(jogoMesa.getCodigo());
             domain.setNome(jogoMesa.getNome());
             domain.setValorBase(jogoMesa.getValorBase());

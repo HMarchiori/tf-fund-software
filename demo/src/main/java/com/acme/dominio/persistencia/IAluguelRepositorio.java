@@ -10,4 +10,7 @@ public interface IAluguelRepositorio {
     Aluguel getAluguelByIdentificador(Integer id);
     void salvarAluguel(Aluguel aluguel);
     boolean existeAluguelPorIdentificador(Integer id);
+    List<Aluguel> getAlugueisPorCliente(Integer numero);
+    List<Aluguel> getAlugueisPorJogo(Integer codigo);
+
 }
