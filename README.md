@@ -20,19 +20,19 @@ LISTA DE ENDPOINTS:
 
 2. Endpoint: POST /acmegames/validacliente ok
 
-3. Endpoint: POST /acmegames/validaaluguel
+3. Endpoint: POST /acmegames/validaaluguel ok
 
 4. Endpoint: GET /acmegames/cadastro/listajogos ok
 
 5. Endpoint: GET /acmegames/cadastro/listaclientes ok
 
-6. Endpoint: GET /acmegames/cadastro/listaalugueis
+6. Endpoint: GET /acmegames/cadastro/listaalugueis ok
 
 7. Endpoint: POST /acmegames/cadastro/cadjogo ok
 
 8. Endpoint: POST /acmegames/cadastro/cadcliente ok
 
-9. Endpoint: POST /acmegames/cadastro/cadaluguel
+9. Endpoint: POST /acmegames/cadastro/cadaluguel ok
 
 10. Endpoint: GET /acmegames/cliente/aluguel/:numero
 
