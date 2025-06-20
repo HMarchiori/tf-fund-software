@@ -17,3 +17,13 @@ CREATE TABLE cliente (
                          cnpj VARCHAR(18),
                          nome_fantasia VARCHAR(255)
 );
+
+CREATE TABLE aluguel (
+                         identificador INTEGER PRIMARY KEY,
+                         data_inicial TIMESTAMP,
+                         periodo INTEGER,
+                         jogo_codigo INTEGER,
+                         cliente_numero INTEGER,
+                         FOREIGN KEY (jogo_codigo) REFERENCES jogo(codigo),
+                         FOREIGN KEY (cliente_numero) REFERENCES cliente(numero)
+);

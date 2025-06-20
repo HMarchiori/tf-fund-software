@@ -43,3 +43,9 @@ VALUES (5, 'Velvet Events Ltd.', '99 Queen Street, Toronto, ON', 'empresarial', 
 
 INSERT INTO cliente (numero, nome, endereco, tipo_cliente, cnpj, nome_fantasia)
 VALUES (6, 'Stellar Media Group', '500 Oxford Street, London, UK', 'empresarial', '66.777.888/0001-55', 'Stellar Entertainment');
+
+INSERT INTO aluguel (identificador, data_inicial, periodo, jogo_codigo, cliente_numero)
+VALUES (1, '2023-01-01', 5, 1, 1);
+
+INSERT INTO aluguel (identificador, data_inicial, periodo, jogo_codigo, cliente_numero)
+VALUES (2, '2023-01-10', 10, 2, 4);

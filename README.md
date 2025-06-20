@@ -16,21 +16,21 @@ LISTA DE TAREFAS:
 
 LISTA DE ENDPOINTS:
 
-1. Endpoint: POST /acmegames/validajogo
+1. Endpoint: POST /acmegames/validajogo ok
 
-2. Endpoint: POST /acmegames/validacliente
+2. Endpoint: POST /acmegames/validacliente ok
 
 3. Endpoint: POST /acmegames/validaaluguel
 
-4. Endpoint: GET /acmegames/cadastro/listajogos
+4. Endpoint: GET /acmegames/cadastro/listajogos ok
 
-5. Endpoint: GET /acmegames/cadastro/listaclientes
+5. Endpoint: GET /acmegames/cadastro/listaclientes ok
 
 6. Endpoint: GET /acmegames/cadastro/listaalugueis
 
-7. Endpoint: POST /acmegames/cadastro/cadjogo
+7. Endpoint: POST /acmegames/cadastro/cadjogo ok
 
-8. Endpoint: POST /acmegames/cadastro/cadcliente
+8. Endpoint: POST /acmegames/cadastro/cadcliente ok
 
 9. Endpoint: POST /acmegames/cadastro/cadaluguel
 

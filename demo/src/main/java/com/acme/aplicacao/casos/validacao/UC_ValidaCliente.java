@@ -12,7 +12,7 @@ public class UC_ValidaCliente {
         this.repositorio = repositorio;
     }
 
-    public boolean executarUC(int numero) {
+    public boolean executarUC(Integer numero) {
         return repositorio.existeClientePorNumero(numero);
     }
 

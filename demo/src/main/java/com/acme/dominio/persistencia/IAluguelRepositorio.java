@@ -6,7 +6,8 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 public interface IAluguelRepositorio {
-    List<Aluguel> todos();
-    Aluguel porId(String id);
-    void cadastrar(Aluguel aluguel);
+    List<Aluguel> getAlugueis();
+    Aluguel getAluguelByIdentificador(Integer id);
+    void salvarAluguel(Aluguel aluguel);
+    boolean existeAluguelPorIdentificador(Integer id);
 }

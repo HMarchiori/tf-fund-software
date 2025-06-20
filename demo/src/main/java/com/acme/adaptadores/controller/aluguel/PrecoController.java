@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/acmegames/aluguel")
-public class AluguelController {
+public class PrecoController {
 
     // teste
     // TODO
