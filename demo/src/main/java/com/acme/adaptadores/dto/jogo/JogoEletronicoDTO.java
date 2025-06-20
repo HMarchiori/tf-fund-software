@@ -2,10 +2,12 @@ package com.acme.adaptadores.dto.jogo;
 
 import com.acme.dominio.modelo.jogo.structures.TipoEletronico;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Setter
 @Getter
+@NoArgsConstructor
 public class JogoEletronicoDTO extends JogoDTO {
     protected TipoEletronico tipo;
     protected String plataforma;

@@ -13,7 +13,6 @@ import lombok.*;
 public class ECliente {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "numero")
     private int numero;
 

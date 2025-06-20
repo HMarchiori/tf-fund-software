@@ -1,7 +1,6 @@
 package com.acme.aplicacao.casos.validacao;
 
 import com.acme.dominio.persistencia.IClienteRepositorio;
-import com.acme.dominio.persistencia.IJogoRepositorio;
 import org.springframework.stereotype.Service;
 
 @Service

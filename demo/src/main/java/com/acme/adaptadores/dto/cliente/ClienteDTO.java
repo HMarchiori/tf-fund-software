@@ -8,6 +8,7 @@ import com.acme.dominio.modelo.cliente.ClienteIndividual;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
@@ -18,6 +19,7 @@ import lombok.Setter;
 })
 @Getter
 @Setter
+@NoArgsConstructor
 public class ClienteDTO {
 
     private int numero;
