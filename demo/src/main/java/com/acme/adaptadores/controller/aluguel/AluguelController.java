@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/acmegames/aluguel")
 public class AluguelController {
 
+    // teste
     // TODO
     // Endpoint: GET /acmegames/aluguel/valorjogo/:codigo
 
