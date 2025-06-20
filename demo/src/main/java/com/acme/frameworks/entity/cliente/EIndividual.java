@@ -10,7 +10,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@DiscriminatorValue("INDIVIDUAL")
+@DiscriminatorValue("individual")
 public class EIndividual extends ECliente {
 
     @Column(name = "cpf")

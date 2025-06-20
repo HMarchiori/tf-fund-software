@@ -7,7 +7,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "tipo", discriminatorType = DiscriminatorType.STRING)
+@DiscriminatorColumn(name = "tipo_cliente", discriminatorType = DiscriminatorType.STRING)
 @Entity
 @Table(name = "cliente")
 public class ECliente {

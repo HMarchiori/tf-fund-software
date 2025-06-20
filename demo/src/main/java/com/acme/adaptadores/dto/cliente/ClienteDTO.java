@@ -1,16 +1,28 @@
 package com.acme.adaptadores.dto.cliente;
 
 
+import com.acme.adaptadores.dto.jogo.JogoEletronicoDTO;
+import com.acme.adaptadores.dto.jogo.JogoMesaDTO;
+import com.acme.dominio.modelo.cliente.ClienteEmpresarial;
+import com.acme.dominio.modelo.cliente.ClienteIndividual;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import lombok.Getter;
 import lombok.Setter;
 
+
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "tipo_cliente")
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = ClienteIndividualDTO.class, name = "individual"),
+        @JsonSubTypes.Type(value = ClienteEmpresarialDTO.class, name = "empresarial")
+})
 @Getter
 @Setter
 public class ClienteDTO {
 
-    private final int numero;
-    private final String nome;
-    private final String endereco;
+    private int numero;
+    private String nome;
+    private String endereco;
 
     public ClienteDTO(int numero, String nome, String endereco) {
         this.numero = numero;

@@ -10,7 +10,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@DiscriminatorValue("EMPRESARIAL")
+@DiscriminatorValue("empresarial")
 public class EEmpresarial extends ECliente {
 
     @Column(name = "cnpj")

@@ -28,6 +28,7 @@ public class CadastroController {
 
     @PostMapping("/cadjogo")
     public ResponseEntity<Void> cadastrarJogo(@RequestBody JogoDTO jogoDTO) {
+        //jogoDTO.setCodigo(0);
         Jogo jogo = JogoMapper.toDomain(jogoDTO);
         cadastraJogo.executarUC(jogo);
         return ResponseEntity.ok().build();
@@ -35,6 +36,7 @@ public class CadastroController {
 
     @PostMapping("/cadcliente")
     public ResponseEntity<Void> cadastrarCliente(@RequestBody ClienteDTO clienteDTO) {
+        //clienteDTO.setNumero(0);
         Cliente cliente = ClienteMapper.toDomain(clienteDTO);
         cadastroCliente.executarUC(cliente);
         return ResponseEntity.ok().build();
