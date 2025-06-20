@@ -1,7 +1,9 @@
 package com.acme.adaptadores.controller.validacao;
 
+import com.acme.adaptadores.dto.validate.ValidateAluguelDTO;
 import com.acme.adaptadores.dto.validate.ValidateClienteDTO;
 import com.acme.adaptadores.dto.validate.ValidateJogoDTO;
+import com.acme.aplicacao.casos.validacao.UC_ValidaAluguel;
 import com.acme.aplicacao.casos.validacao.UC_ValidaCliente;
 import com.acme.aplicacao.casos.validacao.UC_ValidaJogo;
 import org.springframework.http.ResponseEntity;
@@ -13,10 +15,12 @@ public class ValidacaoController {
 
     private final UC_ValidaJogo validaJogo;
     private final UC_ValidaCliente validaCliente;
+    private final UC_ValidaAluguel validaAluguel;
 
-    public ValidacaoController(UC_ValidaJogo validaJogo, UC_ValidaCliente validaCliente) {
+    public ValidacaoController(UC_ValidaJogo validaJogo, UC_ValidaCliente validaCliente, UC_ValidaAluguel validaAluguel) {
         this.validaJogo = validaJogo;
         this.validaCliente = validaCliente;
+        this.validaAluguel = validaAluguel;
     }
 
     @PostMapping("/validajogo")
@@ -31,6 +35,9 @@ public class ValidacaoController {
         return ResponseEntity.ok(isValido);
     }
 
-    // TODO
-    // Endpoint: POST /acmegames/validaaluguel
+    @PostMapping("/validaaluguel")
+    public ResponseEntity<Boolean> validarAluguel(@RequestBody ValidateAluguelDTO dto) {
+        boolean isValido = validaAluguel.executarUC(dto.identificador());
+        return ResponseEntity.ok(isValido);
+    }
 }

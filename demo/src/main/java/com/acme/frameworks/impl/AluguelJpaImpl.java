@@ -1,12 +1,9 @@
 package com.acme.frameworks.impl;
 
-import com.acme.adaptadores.mapper.ClienteMapper;
+import com.acme.adaptadores.mapper.AluguelMapper;
 import com.acme.adaptadores.repository.IAluguelJpaRepository;
-import com.acme.adaptadores.repository.IClienteJpaRepository;
 import com.acme.dominio.modelo.aluguel.Aluguel;
-import com.acme.dominio.modelo.cliente.Cliente;
 import com.acme.dominio.persistencia.IAluguelRepositorio;
-import com.acme.dominio.persistencia.IClienteRepositorio;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -21,23 +18,29 @@ public class AluguelJpaImpl implements IAluguelRepositorio {
         this.repository = repository;
     }
 
+
     @Override
     public List<Aluguel> getAlugueis() {
-        return List.of();
+        return repository.findAll().stream()
+                .map(AluguelMapper::toDomain)
+                .toList();
     }
 
     @Override
     public Aluguel getAluguelByIdentificador(Integer id) {
-        return null;
+        var aluguelEntity = repository.findByIdentificador(id);
+        return AluguelMapper.toDomain(aluguelEntity);
     }
 
     @Override
     public void salvarAluguel(Aluguel aluguel) {
-
+        var aluguelEntity = AluguelMapper.toEntity(aluguel);
+        repository.save(aluguelEntity);
     }
 
     @Override
     public boolean existeAluguelPorIdentificador(Integer id) {
-        return false;
+        var aluguelEntity = repository.findByIdentificador(id);
+        return aluguelEntity != null;
     }
 }

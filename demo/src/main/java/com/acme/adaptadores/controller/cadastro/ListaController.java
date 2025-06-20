@@ -1,9 +1,12 @@
 package com.acme.adaptadores.controller.cadastro;
 
+import com.acme.adaptadores.dto.aluguel.AluguelDTO;
 import com.acme.adaptadores.dto.cliente.ClienteDTO;
 import com.acme.adaptadores.dto.jogo.JogoDTO;
+import com.acme.adaptadores.mapper.AluguelMapper;
 import com.acme.adaptadores.mapper.ClienteMapper;
 import com.acme.adaptadores.mapper.JogoMapper;
+import com.acme.aplicacao.casos.lista.UC_ListaAluguel;
 import com.acme.aplicacao.casos.lista.UC_ListaCliente;
 import com.acme.aplicacao.casos.lista.UC_ListaJogos;
 import org.springframework.http.ResponseEntity;
@@ -17,10 +20,12 @@ public class ListaController {
 
     private final UC_ListaJogos listaJogos;
     private final UC_ListaCliente listaClientes;
+    private final UC_ListaAluguel listaAlugueis;
 
-    public ListaController(UC_ListaJogos listaJogos, UC_ListaCliente listaClientes) {
+    public ListaController(UC_ListaJogos listaJogos, UC_ListaCliente listaClientes, UC_ListaAluguel listaAlugueis) {
         this.listaJogos = listaJogos;
         this.listaClientes = listaClientes;
+        this.listaAlugueis = listaAlugueis;
     }
 
     @GetMapping("/listajogos")
@@ -39,6 +44,11 @@ public class ListaController {
         return ResponseEntity.ok(clientes);
     }
 
-    // TODO
-    // Endpoint: GET /acmegames/cadastro/listaalugueis
+    @GetMapping("/listaalugueis")
+    public ResponseEntity<List<AluguelDTO>> listarAlugueis() {
+        List<AluguelDTO> alugueis = listaAlugueis.executarUC().stream()
+                .map(AluguelMapper::toDTO)
+                .toList();
+        return ResponseEntity.ok(alugueis);
+    }
 }
