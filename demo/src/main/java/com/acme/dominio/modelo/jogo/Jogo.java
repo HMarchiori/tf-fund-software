@@ -11,4 +11,9 @@ public abstract class Jogo {
     protected String nome;
     protected double valorBase;
 
+    public Jogo(int codigo, String nome, double valorBase) {
+        this.codigo = codigo;
+        this.nome = nome;
+        this.valorBase = valorBase;
+    }
 }

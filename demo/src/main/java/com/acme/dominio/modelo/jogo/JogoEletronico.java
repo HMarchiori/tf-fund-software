@@ -10,7 +10,8 @@ public class JogoEletronico extends Jogo {
     public TipoEletronico tipo;
     public String plataforma;
 
-    public JogoEletronico(TipoEletronico tipo, String plataforma) {
+    public JogoEletronico(int codigo, String nome, double valorBase, TipoEletronico tipo, String plataforma) {
+        super(codigo, nome, valorBase);
         this.tipo = tipo;
         this.plataforma = plataforma;
     }

@@ -1,10 +1,19 @@
 package com.acme.adaptadores.dto.jogo;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import lombok.Getter;
 import lombok.Setter;
 
 @Setter
 @Getter
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "dtype")
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = JogoMesaDTO.class, name = "mesa"),
+        @JsonSubTypes.Type(value = JogoEletronicoDTO.class, name = "eletronico")
+})
+// precisamos usar este querido para o POST funcionar corretamente
+// um pouco exagerado? maybe. Porém funciona.
 public abstract class JogoDTO {
     protected int codigo;
     protected String nome;

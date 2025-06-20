@@ -15,12 +15,18 @@ public class JogoMapper {
     public static Jogo toDomain(JogoDTO dto) {
         if (dto instanceof JogoMesaDTO jogoMesaDTO) {
             return new JogoMesa(
+                    jogoMesaDTO.getCodigo(),
+                    jogoMesaDTO.getNome(),
+                    jogoMesaDTO.getValorBase(),
                     jogoMesaDTO.getTipo(),
                     jogoMesaDTO.getNumeroPecas()
             );
         }
         else if (dto instanceof JogoEletronicoDTO jogoEletronicoDTO) {
             return new JogoEletronico(
+                    jogoEletronicoDTO.getCodigo(),
+                    jogoEletronicoDTO.getNome(),
+                    jogoEletronicoDTO.getValorBase(),
                     jogoEletronicoDTO.getTipo(),
                     jogoEletronicoDTO.getPlataforma()
             );
@@ -73,15 +79,15 @@ public class JogoMapper {
 
     public static Jogo toDomain(EJogo entity) {
         if (entity instanceof EJogoMesa jogoMesa) {
-            int numeroPecas = jogoMesa.getNumeroPecas() != null ? jogoMesa.getNumeroPecas() : 0;  // default 0, ou o que for chic
-            JogoMesa domain = new JogoMesa(jogoMesa.getTipo(), numeroPecas);
+            int numeroPecas = jogoMesa.getNumeroPecas() != null ? jogoMesa.getNumeroPecas() : 0;
+            JogoMesa domain = new JogoMesa(jogoMesa.getCodigo(), jogoMesa.getNome(), jogoMesa.getValorBase(), jogoMesa.getTipo(), numeroPecas);
             domain.setCodigo(jogoMesa.getCodigo());
             domain.setNome(jogoMesa.getNome());
             domain.setValorBase(jogoMesa.getValorBase());
             return domain;
 
         } else if (entity instanceof EJogoEletronico jogoEletronico) {
-            JogoEletronico domain = new JogoEletronico(jogoEletronico.getTipo(), jogoEletronico.getPlataforma());
+            JogoEletronico domain = new JogoEletronico(jogoEletronico.getCodigo(), jogoEletronico.getNome(), jogoEletronico.getValorBase(), jogoEletronico.getTipo(), jogoEletronico.getPlataforma());
             domain.setCodigo(jogoEletronico.getCodigo());
             domain.setNome(jogoEletronico.getNome());
             domain.setValorBase(jogoEletronico.getValorBase());

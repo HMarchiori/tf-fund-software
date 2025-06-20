@@ -6,9 +6,9 @@ import com.acme.adaptadores.dto.cliente.ClienteIndividualDTO;
 import com.acme.dominio.modelo.cliente.Cliente;
 import com.acme.dominio.modelo.cliente.ClienteEmpresarial;
 import com.acme.dominio.modelo.cliente.ClienteIndividual;
-import com.acme.frameworks.entity.ECliente;
-import com.acme.frameworks.entity.EEmpresarial;
-import com.acme.frameworks.entity.EIndividual;
+import com.acme.frameworks.entity.cliente.ECliente;
+import com.acme.frameworks.entity.cliente.EEmpresarial;
+import com.acme.frameworks.entity.cliente.EIndividual;
 
 
 public class ClienteMapper {
