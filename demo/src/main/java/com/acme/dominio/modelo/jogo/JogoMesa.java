@@ -7,8 +7,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class JogoMesa extends Jogo {
-    public TipoMesa tipo;
-    public int numeroPecas;
+    private TipoMesa tipo;
+    private int numeroPecas;
 
     public JogoMesa(int codigo, String nome, double valorBase, TipoMesa tipo, int numeroPecas) {
         super(codigo, nome, valorBase);

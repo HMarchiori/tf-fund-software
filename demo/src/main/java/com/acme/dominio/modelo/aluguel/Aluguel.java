@@ -10,11 +10,11 @@ import java.util.Date;
 @Getter
 @Setter
 public class Aluguel {
-    public int identificador;
-    public Date dataInicial;
-    public int periodo;
-    public Jogo jogo;
-    public Cliente cliente;
+    private int identificador;
+    private Date dataInicial;
+    private int periodo;
+    private Jogo jogo;
+    private Cliente cliente;
 
     public Aluguel(int identificador, Date dataInicial, int periodo, Jogo jogo, Cliente cliente) {
         this.identificador = identificador;

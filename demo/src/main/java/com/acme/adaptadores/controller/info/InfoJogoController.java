@@ -26,16 +26,18 @@ public class InfoJogoController {
     }
 
     @GetMapping("/cliente/aluguel/{numero}")
-    public ResponseEntity<List<AluguelDTO>> alugueisDoCliente(@PathVariable Integer numero) {
-        List<AluguelDTO> alugueis = ucInfoAluguelCliente.executarUC(numero).stream()
+    public ResponseEntity<List<AluguelDTO>> alugueisDoCliente(@PathVariable String numero) {
+        int numeroCliente = Integer.parseInt(numero);
+        List<AluguelDTO> alugueis = ucInfoAluguelCliente.executarUC(numeroCliente).stream()
                 .map(AluguelMapper::toDTO)
                 .toList();
         return ResponseEntity.ok(alugueis);
     }
 
     @GetMapping("/jogo/aluguel/{codigo}")
-    public ResponseEntity<List<AluguelDTO>> alugueisDoJogo(@PathVariable Integer codigo) {
-        List<AluguelDTO> alugueis = ucInfoAluguelJogo.executarUC(codigo).stream()
+    public ResponseEntity<List<AluguelDTO>> alugueisDoJogo(@PathVariable String codigo) {
+        int codigoJogo = Integer.parseInt(codigo);
+        List<AluguelDTO> alugueis = ucInfoAluguelJogo.executarUC(codigoJogo).stream()
                 .map(AluguelMapper::toDTO)
                 .toList();
         return ResponseEntity.ok(alugueis);
