@@ -14,7 +14,7 @@ public class ECliente {
 
     @Id
     @Column(name = "numero")
-    private int numero;
+    private Integer numero;
 
     @Column(name = "nome")
     private String nome;

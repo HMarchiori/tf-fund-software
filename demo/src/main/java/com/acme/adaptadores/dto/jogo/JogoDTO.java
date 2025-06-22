@@ -17,11 +17,11 @@ import lombok.Setter;
 // precisamos usar este querido para o POST funcionar corretamente
 // um pouco exagerado? maybe. Porém funciona.
 public abstract class JogoDTO {
-    protected int codigo;
+    protected Integer codigo;
     protected String nome;
     protected double valorBase;
 
-    public JogoDTO(int codigo, String nome, double valorBase) {
+    public JogoDTO(Integer codigo, String nome, double valorBase) {
         this.codigo = codigo;
         this.nome = nome;
         this.valorBase = valorBase;

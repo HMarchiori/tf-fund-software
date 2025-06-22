@@ -20,7 +20,7 @@ public class UC_Aluguel{
         aluguelRepositorio.cadastrar(aluguel);
     }
 
-    public Aluguel obterPorId(String id) {
+    public Aluguel obterPorId(Integer id) {
         return aluguelRepositorio.porId(id);
     }
 

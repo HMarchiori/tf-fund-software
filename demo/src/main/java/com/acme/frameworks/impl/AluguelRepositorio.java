@@ -23,24 +23,22 @@ public class AluguelRepositorio implements IAluguelRepositorio {
 
     @Override
     public void cadastrar(Aluguel aluguel) {
-        // Mapear o Aluguel para a entidade Ealuguel
         Ealuguel ealuguel = AluguelMapper.toEntity(aluguel);
-        repository.save(ealuguel);  // Salva no banco de dados
+        repository.save(ealuguel);
     }
 
     @Override
     public List<Aluguel> todos() {
-        // Recupera todos os aluguéis e converte para o modelo de domínio
         return repository.findAll()
                 .stream()
-                .map(ealuguel -> AluguelMapper.toDomain(ealuguel))  // Mapeia para o domínio
+                .map(AluguelMapper::toDomain)
                 .collect(Collectors.toList());
     }
 
     @Override
     public Aluguel porId(Integer id) {
         return repository.findById(id)
-                .map(ealuguel -> AluguelMapper.toDomain(ealuguel))  // Mapeia para o domínio
-                .orElseThrow(() -> new RuntimeException("Aluguel não encontrado"));  // Lança exceção se não encontrar
+                .map(AluguelMapper::toDomain)
+                .orElseThrow(() -> new RuntimeException("Aluguel não encontrado"));
     }
 }

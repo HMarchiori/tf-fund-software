@@ -7,11 +7,11 @@ import lombok.Setter;
 @Setter
 public abstract class Jogo {
 
-    protected int codigo;
+    protected Integer codigo;
     protected String nome;
     protected double valorBase;
 
-    public Jogo(int codigo, String nome, double valorBase) {
+    public Jogo(Integer codigo, String nome, double valorBase) {
         this.codigo = codigo;
         this.nome = nome;
         this.valorBase = valorBase;

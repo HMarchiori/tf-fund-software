@@ -1,49 +1,44 @@
 package com.acme.adaptadores.mapper;
 
-import java.time.LocalDateTime;
-
+import com.acme.adaptadores.dto.aluguel.AluguelDTO;
 import com.acme.dominio.modelo.aluguel.Aluguel;
-import com.acme.dominio.modelo.jogo.Jogo;
+import com.acme.frameworks.entity.aluguel.Ealuguel;
+import com.acme.frameworks.entity.cliente.ECliente;
 import com.acme.frameworks.entity.jogo.EJogo;
-import com.acme.dominio.modelo.jogo.JogoMesa;
-import com.acme.dominio.modelo.jogo.JogoEletronico;
-import com.acme.frameworks.entity.jogo.EJogoMesa;
-import com.acme.frameworks.entity.jogo.EJogoEletronico;
+
+import java.time.LocalDateTime;
 
 public class AluguelMapper {
 
-    public static Aluguel toDomain(EJogo entity, LocalDateTime dataInicial, Integer periodo) {
-        Jogo jogo = toDomainJogo(entity);
-        return new Aluguel(null, dataInicial, periodo, jogo);
+    // Converte DTO + entidades cliente e jogo para entidade Ealuguel
+    public static Ealuguel toEntity(AluguelDTO dto, ECliente cliente, EJogo jogo) {
+        Ealuguel entity = new Ealuguel();
+        entity.setDataInicial(dto.getData() != null ? dto.getData() : LocalDateTime.now());
+        entity.setPeriodo(dto.getPeriodo());
+        entity.setCliente(cliente);
+        entity.setJogo(jogo);
+        return entity;
     }
 
-    private static Jogo toDomainJogo(EJogo entity) {
-        if (entity instanceof EJogoMesa ejogoMesa) {
-            return new JogoMesa(ejogoMesa.getCodigo(), ejogoMesa.getNome(), ejogoMesa.getValorBase(), ejogoMesa.getTipo(), ejogoMesa.getNumeroPecas());
-        } else if (entity instanceof EJogoEletronico ejogoEletronico) {
-            return new JogoEletronico(ejogoEletronico.getCodigo(), ejogoEletronico.getNome(), ejogoEletronico.getValorBase(), ejogoEletronico.getTipo(), ejogoEletronico.getPlataforma());
-        }
-        throw new IllegalArgumentException("Tipo de jogo desconhecido");
+    // Converte entidade para domínio
+    public static Aluguel toDomain(Ealuguel entity) {
+        return new Aluguel(
+            entity.getIdentificador(), // <-- este campo estava faltando
+            entity.getDataInicial(),
+            entity.getPeriodo(),
+            ClienteMapper.toDomain(entity.getCliente()),
+            JogoMapper.toDomain(entity.getJogo())
+        );
     }
 
-    public static EJogo toEntity(Jogo jogo) {
-        if (jogo instanceof JogoMesa jogoMesa) {
-            EJogoMesa entity = new EJogoMesa();
-            entity.setCodigo(jogoMesa.getCodigo());
-            entity.setNome(jogoMesa.getNome());
-            entity.setValorBase(jogoMesa.getValorBase());
-            entity.setTipo(jogoMesa.getTipo());
-            entity.setNumeroPecas(jogoMesa.getNumeroPecas());
-            return entity;
-        } else if (jogo instanceof JogoEletronico jogoEletronico) {
-            EJogoEletronico entity = new EJogoEletronico();
-            entity.setCodigo(jogoEletronico.getCodigo());
-            entity.setNome(jogoEletronico.getNome());
-            entity.setValorBase(jogoEletronico.getValorBase());
-            entity.setTipo(jogoEletronico.getTipo());
-            entity.setPlataforma(jogoEletronico.getPlataforma());
-            return entity;
-        }
-        throw new IllegalArgumentException("Tipo de jogo desconhecido");
+    // Converte domínio para entidade
+    public static Ealuguel toEntity(Aluguel domain) {
+        Ealuguel entity = new Ealuguel();
+        entity.setIdentificador(domain.getIdentificador());
+        entity.setDataInicial(domain.getDataInicial());
+        entity.setPeriodo(domain.getPeriodo());
+        entity.setCliente(ClienteMapper.toEntity(domain.getCliente()));
+        entity.setJogo(JogoMapper.toEntity(domain.getJogo()));
+        return entity;
     }
 }
