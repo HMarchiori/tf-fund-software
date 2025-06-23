@@ -25,4 +25,14 @@ public class AluguelDTO {
         this.jogo = jogo;
         this.cliente = cliente;
     }
+
+    public void setCodigo(int i) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setCodigo'");
+    }
+
+    public void setNumero(int i) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setNumero'");
+    }
 }
