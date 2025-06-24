@@ -1,0 +1,399 @@
+{
+	"info": {
+		"_postman_id": "4f59fbfa-1257-49fb-ac25-9306517ccb35",
+		"name": "Trabalho Final",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36844659"
+	},
+	"item": [
+		{
+			"name": "Listas",
+			"item": [
+				{
+					"name": "Lista de Jogos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/acmegames/cadastro/listajogos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"acmegames",
+								"cadastro",
+								"listajogos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lista de Clientes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/acmegames/cadastro/listaclientes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"acmegames",
+								"cadastro",
+								"listaclientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lista de Alugueis",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/acmegames/cadastro/listaalugueis",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"acmegames",
+								"cadastro",
+								"listaalugueis"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cadastros",
+			"item": [
+				{
+					"name": "Cadastrar Jogo Eletrônico",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"tipo_jogo\": \"eletronico\",\n  \"codigo\": 9,\n  \"nome\": \"The Witcher 3\",\n  \"valorBase\": 100.00,\n  \"tipo\": \"AVENTURA\",\n  \"plataforma\": \"PC\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/acmegames/cadastro/cadjogo",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"acmegames",
+								"cadastro",
+								"cadjogo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar Jogo Mesa",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"tipo_jogo\": \"mesa\",\n  \"codigo\": 20,\n  \"nome\": \"Monopoly\",\n  \"valorBase\": 200.0,\n  \"tipo\": \"TABULEIRO\",\n  \"numeroPecas\": 30\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/acmegames/cadastro/cadjogo",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"acmegames",
+								"cadastro",
+								"cadjogo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar Cliente Individual",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"tipo_cliente\": \"individual\",\n  \"numero\": 9,\n  \"nome\": \"João da Silva\",\n  \"endereco\": \"Rua Secundária, 50\",\n  \"cpf\": \"123.456.789-10\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/acmegames/cadastro/cadcliente",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"acmegames",
+								"cadastro",
+								"cadcliente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar Cliente Empresarial",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"tipo_cliente\": \"empresarial\",\n  \"numero\": 10,\n  \"nome\": \"Loja ABC\",\n  \"endereco\": \"Rua Central, 100\",\n  \"cnpj\": \"12.345.678/0001-99\",\n  \"nomeFantasia\": \"ABC Games\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/acmegames/cadastro/cadcliente",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"acmegames",
+								"cadastro",
+								"cadcliente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar Aluguel",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"identificador\": 300,\n  \"dataInicial\": \"2023-05-01T00:00:00Z\",\n  \"periodo\": 7,\n  \"jogo\": {\n    \"dtype\": \"eletronico\",\n    \"codigo\": 1,\n    \"nome\": \"The Witcher 3\",\n    \"valorBase\": 100.0,\n    \"tipo\": \"AVENTURA\",\n    \"plataforma\": \"PC\"\n  },\n  \"cliente\": {\n    \"tipo_cliente\": \"individual\",\n    \"numero\": 1,\n    \"nome\": \"João da Silva\",\n    \"endereco\": \"Rua Secundária, 50\",\n    \"cpf\": \"123.456.789-10\"\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/acmegames/cadastro/cadaluguel",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"acmegames",
+								"cadastro",
+								"cadaluguel"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Validação",
+			"item": [
+				{
+					"name": "Valida Jogo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"codigo\": 9 }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/acmegames/validajogo",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"acmegames",
+								"validajogo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Valida Cliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"numero\": 1 }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/acmegames/validacliente",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"acmegames",
+								"validacliente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Valida Aluguel",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"identificador\": 1 }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/acmegames/validaaluguel",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"acmegames",
+								"validaaluguel"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Aluguéis",
+			"item": [
+				{
+					"name": "Aluguéis por Cliente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/acmegames/cliente/aluguel/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"acmegames",
+								"cliente",
+								"aluguel",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Aluguéis por Jogo",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/acmegames/jogo/aluguel/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"acmegames",
+								"jogo",
+								"aluguel",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Valor",
+			"item": [
+				{
+					"name": "Valor do Jogo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/acmegames/cliente/aluguel/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"acmegames",
+								"cliente",
+								"aluguel",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Valor do Aluguel",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}} /acmegames/aluguel/valorfinal/1",
+							"host": [
+								"{{baseUrl}} "
+							],
+							"path": [
+								"acmegames",
+								"aluguel",
+								"valorfinal",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
