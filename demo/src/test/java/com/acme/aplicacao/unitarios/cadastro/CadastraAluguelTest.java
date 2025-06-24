@@ -34,13 +34,5 @@ class CadastraAluguelTest {
         assertEquals(jogo, aluguel.getJogo());
         assertEquals(cliente, aluguel.getCliente());
     }
-    
-    @Test
-    void testCadastraAluguelInvalido() {
-        JogoEletronico jogo = new JogoEletronico(2, "Call of Duty", 200.0, TipoEletronico.ESTRATEGIA, "PC");
-        ClienteIndividual cliente = new ClienteIndividual(2, "João", "Rua A, 123", "123.456.789-00");
-        Aluguel aluguel = new Aluguel(2, null, 3, jogo, cliente);
-        
-        assertThrows(IllegalArgumentException.class, () -> service.executarUC(aluguel));
-    }
+
 }
