@@ -1,6 +1,8 @@
 package com.acme.adaptadores.controller;
 
 import com.acme.adaptadores.controller.validacao.ValidacaoController;
+import com.acme.adaptadores.dto.validate.ValidateAluguelDTO;
+import com.acme.adaptadores.dto.validate.ValidateClienteDTO;
 import com.acme.adaptadores.dto.validate.ValidateJogoDTO;
 import com.acme.adaptadores.mapper.JogoMapper;
 import com.acme.dominio.modelo.jogo.structures.TipoEletronico;
@@ -47,6 +49,34 @@ class ValidacaoTest {
     void validaJogoInexistente() {
         ValidateJogoDTO codigo = new ValidateJogoDTO(999);
         ResponseEntity<Boolean> response = controller.validarJogo(codigo);
+        assertEquals(Boolean.FALSE, response.getBody());
+    }
+
+    @Test
+    void validaClienteExistente() {
+        ValidateClienteDTO dto = new ValidateClienteDTO(1);
+        ResponseEntity<Boolean> response = controller.validarCliente(dto);
+        assertEquals(Boolean.TRUE, response.getBody());
+    }
+
+    @Test
+    void validaClienteInexistente() {
+        ValidateClienteDTO dto = new ValidateClienteDTO(999);
+        ResponseEntity<Boolean> response = controller.validarCliente(dto);
+        assertEquals(Boolean.FALSE, response.getBody());
+    }
+
+    @Test
+    void validaAluguelExistente() {
+        ValidateAluguelDTO dto = new ValidateAluguelDTO(1);
+        ResponseEntity<Boolean> response = controller.validarAluguel(dto);
+        assertEquals(Boolean.TRUE, response.getBody());
+    }
+
+    @Test
+    void validaAluguelInexistente() {
+        ValidateAluguelDTO dto = new ValidateAluguelDTO(999);
+        ResponseEntity<Boolean> response = controller.validarAluguel(dto);
         assertEquals(Boolean.FALSE, response.getBody());
     }
 

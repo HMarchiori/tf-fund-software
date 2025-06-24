@@ -1,6 +1,8 @@
 package com.acme.adaptadores.controller;
 
 import com.acme.adaptadores.controller.cadastro.ListaController;
+import com.acme.adaptadores.dto.aluguel.AluguelDTO;
+import com.acme.adaptadores.dto.cliente.ClienteDTO;
 import com.acme.adaptadores.dto.jogo.JogoDTO;
 import com.acme.adaptadores.mapper.JogoMapper;
 import com.acme.dominio.modelo.jogo.structures.TipoEletronico;
@@ -29,12 +31,8 @@ class ListaTest {
     @BeforeEach
     void setUp() {
 
-        // TODO: Implementar o método de limpeza do repositório antes de cada teste
-        // coloquei os códigos 9 e 10 para evitar conflitos com os testes de validação
-        // TODO: repository.limparRepositório();
 
         EJogoEletronico jogo1 = new EJogoEletronico();
-        // TODO: deve ser 1
         jogo1.setCodigo(9);
         jogo1.setNome("The Sims 4");
         jogo1.setValorBase(100.0);
@@ -42,7 +40,6 @@ class ListaTest {
         jogo1.setPlataforma("PC");
 
         EJogoMesa jogo2 = new EJogoMesa();
-        // TODO: deve ser 2
         jogo2.setCodigo(10);
         jogo2.setNome("Monopoly");
         jogo2.setValorBase(150.0);
@@ -64,5 +61,30 @@ class ListaTest {
         var nomes = jogos.stream().map(JogoDTO::getNome).toList();
         assertTrue(nomes.contains("The Sims 4"));
         assertTrue(nomes.contains("Monopoly"));
+    }
+
+    @Test
+    void deveListarClientesCadastrados() {
+        var response = listaController.listarClientes();
+        List<ClienteDTO> clientes = response.getBody();
+
+        assertNotNull(clientes);
+        assertTrue(clientes.size() >= 6);
+
+        var nomes = clientes.stream().map(ClienteDTO::getNome).toList();
+        assertTrue(nomes.contains("Emily Thompson"));
+        assertTrue(nomes.contains("Aurora Tech Inc."));
+    }
+
+    @Test
+    void deveListarAlugueisCadastrados() {
+        var response = listaController.listarAlugueis();
+        List<AluguelDTO> alugueis = response.getBody();
+
+        assertNotNull(alugueis);
+        assertTrue(alugueis.size() >= 2);
+
+        boolean contains = alugueis.stream().anyMatch(a -> a.getIdentificador() == 1);
+        assertTrue(contains);
     }
 }
