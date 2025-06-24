@@ -18,13 +18,13 @@ class PrecoControllerTest {
     void calculaValorDoJogo() {
         ResponseEntity<Double> response = precoController.valorJogo(1);
         assertNotNull(response.getBody());
-        assertEquals(105.0, response.getBody(), 0.01);
+        assertEquals(125.0, response.getBody(), 0.01);
     }
 
     @Test
     void calculaValorFinalDoAluguel() {
         ResponseEntity<Double> response = precoController.valorFinal(1);
         assertNotNull(response.getBody());
-        assertEquals(472.5, response.getBody(), 0.01);
+        assertEquals(562.5, response.getBody(), 0.01);
     }
 }

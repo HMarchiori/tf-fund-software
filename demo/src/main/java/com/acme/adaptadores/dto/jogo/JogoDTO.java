@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @Getter
 @NoArgsConstructor
-@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "dtype")
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "tipo_jogo")
 @JsonSubTypes({
         @JsonSubTypes.Type(value = JogoMesaDTO.class, name = "mesa"),
         @JsonSubTypes.Type(value = JogoEletronicoDTO.class, name = "eletronico")
