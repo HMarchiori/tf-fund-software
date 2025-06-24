@@ -7,7 +7,8 @@ import com.acme.dominio.modelo.jogo.JogoEletronico;
 import com.acme.dominio.modelo.jogo.structures.TipoEletronico;
 import com.acme.dominio.persistencia.IAluguelRepositorio;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Date;
 
@@ -15,12 +16,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CadastraAluguelTest {
 
-    private final UC_CadastraAluguel service;
+    private final IAluguelRepositorio aluguelRepositorio = Mockito.mock(IAluguelRepositorio.class);
+    private final UC_CadastraAluguel service = new UC_CadastraAluguel(aluguelRepositorio);
 
-
-    CadastraAluguelTest(UC_CadastraAluguel service) {
-        this.service = service;
-    }
 
 
     @Test
@@ -44,8 +42,6 @@ class CadastraAluguelTest {
         ClienteIndividual cliente = new ClienteIndividual(2, "João", "Rua A, 123", "123.456.789-00");
         Aluguel aluguel = new Aluguel(2, null, 3, jogo, cliente);
         
-        assertThrows(IllegalArgumentException.class, () -> {
-            service.executarUC(aluguel);
-        });
+        assertThrows(IllegalArgumentException.class, () -> service.executarUC(aluguel));
     }
 }
