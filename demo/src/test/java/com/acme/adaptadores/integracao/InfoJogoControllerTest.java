@@ -1,4 +1,4 @@
-package com.acme.adaptadores.controller;
+package com.acme.adaptadores.integracao;
 
 import com.acme.adaptadores.controller.info.InfoJogoController;
 import com.acme.adaptadores.dto.aluguel.AluguelDTO;

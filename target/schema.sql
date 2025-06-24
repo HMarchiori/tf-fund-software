@@ -192,3 +192,18 @@ create table cliente (numero integer not null, tipo_cliente varchar(31) not null
 create table jogo (codigo integer not null, numero_pecas integer, valor_base float(53), tipo_jogo varchar(31) not null, nome varchar(255), plataforma varchar(255), tipo enum ('AVENTURA','ESTRATEGIA','SIMULACAO'), primary key (codigo));
 alter table if exists aluguel add constraint FKlv6gfoyi89upetk5kh2pqwmjt foreign key (cliente_numero) references cliente;
 alter table if exists aluguel add constraint FKbo7fik14d7hjydtp6q1k2cj4s foreign key (jogo_codigo) references jogo;
+create table aluguel (cliente_numero integer, identificador integer not null, jogo_codigo integer, periodo integer not null, data_inicial timestamp(6), primary key (identificador));
+create table cliente (numero integer not null, tipo_cliente varchar(31) not null, cnpj varchar(255), cpf varchar(255), endereco varchar(255), nome varchar(255), nome_fantasia varchar(255), primary key (numero));
+create table jogo (codigo integer not null, numero_pecas integer, valor_base float(53), tipo_jogo varchar(31) not null, nome varchar(255), plataforma varchar(255), tipo enum ('AVENTURA','ESTRATEGIA','SIMULACAO'), primary key (codigo));
+alter table if exists aluguel add constraint FKlv6gfoyi89upetk5kh2pqwmjt foreign key (cliente_numero) references cliente;
+alter table if exists aluguel add constraint FKbo7fik14d7hjydtp6q1k2cj4s foreign key (jogo_codigo) references jogo;
+create table aluguel (cliente_numero integer, identificador integer not null, jogo_codigo integer, periodo integer not null, data_inicial timestamp(6), primary key (identificador));
+create table cliente (numero integer not null, tipo_cliente varchar(31) not null, cnpj varchar(255), cpf varchar(255), endereco varchar(255), nome varchar(255), nome_fantasia varchar(255), primary key (numero));
+create table jogo (codigo integer not null, numero_pecas integer, valor_base float(53), tipo_jogo varchar(31) not null, nome varchar(255), plataforma varchar(255), tipo enum ('AVENTURA','ESTRATEGIA','SIMULACAO'), primary key (codigo));
+alter table if exists aluguel add constraint FKlv6gfoyi89upetk5kh2pqwmjt foreign key (cliente_numero) references cliente;
+alter table if exists aluguel add constraint FKbo7fik14d7hjydtp6q1k2cj4s foreign key (jogo_codigo) references jogo;
+create table aluguel (cliente_numero integer, identificador integer not null, jogo_codigo integer, periodo integer not null, data_inicial timestamp(6), primary key (identificador));
+create table cliente (numero integer not null, tipo_cliente varchar(31) not null, cnpj varchar(255), cpf varchar(255), endereco varchar(255), nome varchar(255), nome_fantasia varchar(255), primary key (numero));
+create table jogo (codigo integer not null, numero_pecas integer, valor_base float(53), tipo_jogo varchar(31) not null, nome varchar(255), plataforma varchar(255), tipo enum ('AVENTURA','ESTRATEGIA','SIMULACAO'), primary key (codigo));
+alter table if exists aluguel add constraint FKlv6gfoyi89upetk5kh2pqwmjt foreign key (cliente_numero) references cliente;
+alter table if exists aluguel add constraint FKbo7fik14d7hjydtp6q1k2cj4s foreign key (jogo_codigo) references jogo;

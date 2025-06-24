@@ -80,24 +80,22 @@ public class JogoMapper {
     public static Jogo toDomain(EJogo entity) {
         if (entity instanceof EJogoMesa jogoMesa) {
             int numeroPecas = jogoMesa.getNumeroPecas() != null ? jogoMesa.getNumeroPecas() : 0;
-            JogoMesa domain = new JogoMesa(
+            return new JogoMesa(
                     jogoMesa.getCodigo(),
                     jogoMesa.getNome(),
                     jogoMesa.getValorBase(),
                     jogoMesa.getTipo(),
                     numeroPecas
             );
-            domain.setCodigo(jogoMesa.getCodigo());
-            domain.setNome(jogoMesa.getNome());
-            domain.setValorBase(jogoMesa.getValorBase());
-            return domain;
 
         } else if (entity instanceof EJogoEletronico jogoEletronico) {
-            JogoEletronico domain = new JogoEletronico(jogoEletronico.getCodigo(), jogoEletronico.getNome(), jogoEletronico.getValorBase(), jogoEletronico.getTipo(), jogoEletronico.getPlataforma());
-            domain.setCodigo(jogoEletronico.getCodigo());
-            domain.setNome(jogoEletronico.getNome());
-            domain.setValorBase(jogoEletronico.getValorBase());
-            return domain;
+            return new JogoEletronico(
+                    jogoEletronico.getCodigo(),
+                    jogoEletronico.getNome(),
+                    jogoEletronico.getValorBase(),
+                    jogoEletronico.getTipo(),
+                    jogoEletronico.getPlataforma()
+            );
         }
         throw new IllegalArgumentException("Tipo de Entity desconhecido");
     }

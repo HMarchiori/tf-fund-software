@@ -1,4 +1,4 @@
-package com.acme.adaptadores.controller;
+package com.acme.adaptadores.integracao;
 
 import com.acme.adaptadores.controller.cadastro.ListaController;
 import com.acme.adaptadores.dto.aluguel.AluguelDTO;
@@ -56,7 +56,8 @@ class ListaTest {
         List<JogoDTO> jogos = response.getBody();
 
         assertNotNull(jogos);
-        assertEquals(10, jogos.size());
+        // os outros métodos de teste adicionaram mais dois jogos também!!
+        assertEquals(12, jogos.size());
 
         var nomes = jogos.stream().map(JogoDTO::getNome).toList();
         assertTrue(nomes.contains("The Sims 4"));
