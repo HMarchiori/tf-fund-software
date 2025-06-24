@@ -1,7 +1,5 @@
 package com.acme.aplicacao.unitarios.preco;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class CalculaValorJogoTest {
 
 }

@@ -8,7 +8,6 @@ import com.acme.dominio.modelo.jogo.structures.TipoEletronico;
 import com.acme.dominio.persistencia.IAluguelRepositorio;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Date;
 
