@@ -12,6 +12,7 @@ import java.util.List;
 public class ClienteJpaImpl implements IClienteRepositorio {
 
     private final IClienteJpaRepository repository;
+    
 
     public ClienteJpaImpl(IClienteJpaRepository repository) {
         this.repository = repository;
@@ -42,4 +43,12 @@ public class ClienteJpaImpl implements IClienteRepositorio {
         var clienteEntity = repository.findByNumero(numero);
         return clienteEntity != null;
     }
+
+    @Override
+    public Cliente buscarPorCpf(String cpf) {
+        return repository.findByCpf(cpf)
+            .map(ClienteMapper::toDomain)
+            .orElse(null);
+}
+
 }
