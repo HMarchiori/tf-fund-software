@@ -11,7 +11,6 @@ VALUES (3, 'Flight Simulator', 200.00, 'eletronico', 'SIMULACAO', 'PC', NULL);
 INSERT INTO jogo (codigo, nome, valor_base, tipo_jogo, tipo, plataforma, numero_pecas)
 VALUES (4, 'Overcooked 2', 90.00, 'eletronico', 'ESTRATEGIA', 'Nintendo Switch', NULL);
 
--- Jogos de mesa
 INSERT INTO jogo (codigo, nome, valor_base, tipo_jogo, tipo, plataforma, numero_pecas)
 VALUES (5, 'UNO Deluxe', 40.00, 'mesa', 'CARTAS', NULL, NULL);
 
@@ -24,16 +23,24 @@ VALUES (7, 'Xadrez Clássico', 80.00, 'mesa', 'TABULEIRO', NULL, 32);
 INSERT INTO jogo (codigo, nome, valor_base, tipo_jogo, tipo, plataforma, numero_pecas)
 VALUES (8, 'Jogo da Vida', 60.00, 'mesa', 'TABULEIRO', NULL, 80);
 
+INSERT INTO jogo (codigo, nome, valor_base, tipo_jogo, tipo, plataforma, numero_pecas)
+VALUES (9, 'The Sims 4', 250.00, 'eletronico', 'SIMULACAO', 'PC', NULL);
+
+INSERT INTO jogo (codigo, nome, valor_base, tipo_jogo, tipo, plataforma, numero_pecas)
+VALUES (10, 'Mario Kart World', 500.00, 'eletronico', 'ESTRATEGIA', 'Nintendo Switch 2', NULL);
+
+
+
 
 
 INSERT INTO cliente (numero, nome, endereco, tipo_cliente, cpf)
-VALUES (1, 'Emily Thompson', '123 Ocean Drive, Miami, FL', 'individual', '111.222.333-44');
+VALUES (1, 'Joao da Silva', 'Avenida Nilo Pecanha', 'individual', '111.222.333-44');
 
 INSERT INTO cliente (numero, nome, endereco, tipo_cliente, cpf)
-VALUES (2, 'Alexander Cooper', '456 Park Avenue, New York, NY', 'individual', '555.666.777-88');
+VALUES (2, 'Davi Brito', 'Avenida Carlos Gomes', 'individual', '555.666.777-88');
 
 INSERT INTO cliente (numero, nome, endereco, tipo_cliente, cpf)
-VALUES (3, 'Isabella Moreau', '789 Sunset Blvd, Los Angeles, CA', 'individual', '999.000.111-22');
+VALUES (3, 'Henrique Ribeiro', 'Avenida Ipiranga', 'individual', '999.000.111-22');
 
 INSERT INTO cliente (numero, nome, endereco, tipo_cliente, cnpj, nome_fantasia)
 VALUES (4, 'Aurora Tech Inc.', '10 Silicon Valley Rd, Palo Alto, CA', 'empresarial', '12.345.678/0001-99', 'Aurora Innovations');
@@ -49,3 +56,6 @@ VALUES (1, '2023-01-01', 5, 1, 1);
 
 INSERT INTO aluguel (identificador, data_inicial, periodo, jogo_codigo, cliente_numero)
 VALUES (2, '2023-01-10', 10, 2, 4);
+
+INSERT INTO aluguel (identificador, data_inicial, periodo, jogo_codigo, cliente_numero)
+VALUES (3, '2023-01-20', 20, 3, 2);

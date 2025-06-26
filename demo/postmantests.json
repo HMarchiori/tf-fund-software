@@ -78,7 +78,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"tipo_jogo\": \"eletronico\",\n  \"codigo\": 9,\n  \"nome\": \"The Witcher 3\",\n  \"valorBase\": 100.00,\n  \"tipo\": \"AVENTURA\",\n  \"plataforma\": \"PC\"\n}\n",
+							"raw": "{\n  \"tipo_jogo\": \"eletronico\",\n  \"codigo\": 30,\n  \"nome\": \"The Witcher 3\",\n  \"valorBase\": 100.00,\n  \"tipo\": \"AVENTURA\",\n  \"plataforma\": \"PC\"\n}\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -134,7 +134,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"tipo_cliente\": \"individual\",\n  \"numero\": 9,\n  \"nome\": \"João da Silva\",\n  \"endereco\": \"Rua Secundária, 50\",\n  \"cpf\": \"123.456.789-10\"\n}",
+							"raw": "{\n  \"tipo_cliente\": \"individual\",\n  \"numero\": 11,\n  \"nome\": \"João da Silva\",\n  \"endereco\": \"Rua Secundária, 50\",\n  \"cpf\": \"123.456.789-10\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -162,7 +162,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"tipo_cliente\": \"empresarial\",\n  \"numero\": 10,\n  \"nome\": \"Loja ABC\",\n  \"endereco\": \"Rua Central, 100\",\n  \"cnpj\": \"12.345.678/0001-99\",\n  \"nomeFantasia\": \"ABC Games\"\n}",
+							"raw": "{\n  \"tipo_cliente\": \"empresarial\",\n  \"numero\": 12,\n  \"nome\": \"Loja ABC\",\n  \"endereco\": \"Rua Central, 100\",\n  \"cnpj\": \"12.345.678/0001-99\",\n  \"nomeFantasia\": \"ABC Games\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -190,7 +190,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"identificador\": 300,\n  \"dataInicial\": \"2023-05-01T00:00:00Z\",\n  \"periodo\": 7,\n  \"jogo\": {\n    \"dtype\": \"eletronico\",\n    \"codigo\": 1,\n    \"nome\": \"The Witcher 3\",\n    \"valorBase\": 100.0,\n    \"tipo\": \"AVENTURA\",\n    \"plataforma\": \"PC\"\n  },\n  \"cliente\": {\n    \"tipo_cliente\": \"individual\",\n    \"numero\": 1,\n    \"nome\": \"João da Silva\",\n    \"endereco\": \"Rua Secundária, 50\",\n    \"cpf\": \"123.456.789-10\"\n  }\n}",
+							"raw": "{\n  \"identificador\": 300,\n  \"dataInicial\": \"2023-05-01T00:00:00Z\",\n  \"periodo\": 7,\n  \"jogo\": {\n    \"tipo_jogo\": \"eletronico\",\n    \"codigo\": 1,\n    \"nome\": \"The Witcher 3\",\n    \"valorBase\": 100.0,\n    \"tipo\": \"AVENTURA\",\n    \"plataforma\": \"PC\"\n  },\n  \"cliente\": {\n    \"tipo_cliente\": \"individual\",\n    \"numero\": 1,\n    \"nome\": \"João da Silva\",\n    \"endereco\": \"Avenida Nilo Pecanha\",\n    \"cpf\": \"111.222.333-44\"\n  }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -250,7 +250,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{ \"numero\": 1 }",
+							"raw": "{ \"numero\": 12 }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -277,7 +277,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{ \"identificador\": 1 }",
+							"raw": "{ \"identificador\": 3 }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -359,15 +359,15 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/acmegames/cliente/aluguel/1",
+							"raw": "{{baseUrl}}/acmegames/aluguel/valorjogo/2",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"acmegames",
-								"cliente",
 								"aluguel",
-								"1"
+								"valorjogo",
+								"2"
 							]
 						}
 					},
@@ -379,7 +379,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}} /acmegames/aluguel/valorfinal/1",
+							"raw": "{{baseUrl}} /acmegames/aluguel/valorfinal/2",
 							"host": [
 								"{{baseUrl}} "
 							],
@@ -387,7 +387,7 @@
 								"acmegames",
 								"aluguel",
 								"valorfinal",
-								"1"
+								"2"
 							]
 						}
 					},
